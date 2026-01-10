@@ -1,30 +1,32 @@
-import { AppBar, Toolbar, Typography, Button, Container, Box } from '@mui/material';
-
 export default function Navigation() {
   return (
-    <AppBar position="static" color="default" elevation={1}>
-      <Container maxWidth="lg">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            component="a"
-            href="/"
-            sx={{
-              flexGrow: 1,
-              textDecoration: 'none',
-              color: 'inherit',
-              fontWeight: 700,
-            }}
-          >
-            Jinsy Oommen
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 1 }}>
-            <Button color="inherit" href="/">Home</Button>
-            <Button color="inherit" href="/blog">Blog</Button>
-            <Button color="inherit" href="/about">About</Button>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <nav style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '1rem 2rem',
+      background: '#2d2d2d',
+      color: 'white',
+    }}>
+      <a
+        href="/"
+        style={{
+          textDecoration: 'none',
+          color: 'white',
+          fontSize: '1.1rem',
+          fontWeight: 500,
+        }}
+      >
+        Jinsy Oommen
+      </a>
+      <div style={{ display: 'flex', gap: '2rem' }}>
+        <a href="/about" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
+          About
+        </a>
+        <a href="/blog" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
+          Blog
+        </a>
+      </div>
+    </nav>
   );
 }

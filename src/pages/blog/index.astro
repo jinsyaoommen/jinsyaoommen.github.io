@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import { Container, Typography, Card, CardContent, CardActionArea, Chip, Box } from '@mui/material';
 
 const posts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
@@ -9,44 +8,114 @@ const posts = (await getCollection('blog'))
 ---
 
 <Layout title="Blog | Jinsy Oommen">
-  <Container maxWidth="md" sx={{ py: 4 }}>
-    <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 700, mb: 4 }}>
-      Blog
-    </Typography>
+  <section class="blog">
+    <div class="container">
+      <h1>Blog</h1>
 
-    <div class="posts-grid">
-      {posts.map((post) => (
-        <Card sx={{ mb: 3 }}>
-          <CardActionArea href={`/blog/${post.id}`}>
-            <CardContent>
-              <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
-                {post.data.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                {post.data.pubDate.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }}>
-                {post.data.description}
-              </Typography>
-              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+      <div class="posts">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} class="post">
+            <span class="date">
+              {post.data.pubDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </span>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            {post.data.tags.length > 0 && (
+              <div class="tags">
                 {post.data.tags.map((tag: string) => (
-                  <Chip label={tag} size="small" variant="outlined" />
+                  <span class="tag">{tag}</span>
                 ))}
-              </Box>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      ))}
-    </div>
+              </div>
+            )}
+          </a>
+        ))}
+      </div>
 
-    {posts.length === 0 && (
-      <Typography variant="body1" color="text.secondary">
-        No posts yet. Check back soon!
-      </Typography>
-    )}
-  </Container>
+      {posts.length === 0 && (
+        <p class="empty">No posts yet. Check back soon!</p>
+      )}
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .blog {
+    padding: 4rem 0;
+    min-height: calc(100vh - 64px);
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: #2d2d2d;
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .post {
+    display: block;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .post:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .date {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .post h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #2d2d2d;
+    margin: 0.5rem 0;
+  }
+
+  .post p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background: #e5e5e5;
+    color: #666;
+    border-radius: 2px;
+  }
+
+  .empty {
+    color: #888;
+  }
+</style>

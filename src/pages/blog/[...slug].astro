@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
-import { Container, Typography, Chip, Box, Button } from '@mui/material';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -16,98 +15,164 @@ const { Content } = await render(post);
 ---
 
 <Layout title={`${post.data.title} | Jinsy Oommen`}>
-  <Container maxWidth="md" sx={{ py: 4 }}>
-    <Button
-      href="/blog"
-      sx={{ mb: 3 }}
-    >
-      ← Back to Blog
-    </Button>
+  <article class="post">
+    <div class="container">
+      <a href="/blog" class="back">← Back to Blog</a>
 
-    <article>
       <header>
-        <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
-          {post.data.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+        <span class="date">
           {post.data.pubDate.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
           })}
-          {post.data.updatedDate && (
-            <span> (Updated: {post.data.updatedDate.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })})</span>
-          )}
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 4 }}>
-          {post.data.tags.map((tag: string) => (
-            <Chip label={tag} size="small" variant="outlined" />
-          ))}
-        </Box>
+        </span>
+        <h1>{post.data.title}</h1>
+        {post.data.tags.length > 0 && (
+          <div class="tags">
+            {post.data.tags.map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
       </header>
 
-      <div class="prose">
+      <div class="content">
         <Content />
       </div>
-    </article>
-  </Container>
+    </div>
+  </article>
 </Layout>
 
-<style is:global>
-  .prose {
-    line-height: 1.8;
-    font-size: 1.1rem;
+<style>
+  .post {
+    padding: 4rem 0;
+    min-height: calc(100vh - 64px);
   }
 
-  .prose h1, .prose h2, .prose h3, .prose h4 {
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .back {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: #7c9eb2;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+
+  .back:hover {
+    text-decoration: underline;
+  }
+
+  header {
+    margin-bottom: 3rem;
+  }
+
+  .date {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin: 0.5rem 0 1rem;
+    line-height: 1.2;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background: #e5e5e5;
+    color: #666;
+    border-radius: 2px;
+  }
+
+  .content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .content :global(h1),
+  .content :global(h2),
+  .content :global(h3),
+  .content :global(h4) {
+    color: #2d2d2d;
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: 600;
   }
 
-  .prose p {
+  .content :global(h2) {
+    font-size: 1.5rem;
+  }
+
+  .content :global(h3) {
+    font-size: 1.25rem;
+  }
+
+  .content :global(p) {
     margin-bottom: 1.5rem;
   }
 
-  .prose ul, .prose ol {
+  .content :global(ul),
+  .content :global(ol) {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
   }
 
-  .prose li {
+  .content :global(li) {
     margin-bottom: 0.5rem;
   }
 
-  .prose code {
-    background-color: #f5f5f5;
+  .content :global(code) {
+    background: #f5f5f5;
     padding: 0.2rem 0.4rem;
-    border-radius: 4px;
+    border-radius: 3px;
     font-size: 0.9em;
   }
 
-  .prose pre {
-    background-color: #1e1e1e;
+  .content :global(pre) {
+    background: #2d2d2d;
     color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
+    padding: 1.25rem;
+    border-radius: 4px;
     overflow-x: auto;
     margin-bottom: 1.5rem;
   }
 
-  .prose pre code {
+  .content :global(pre code) {
     background: none;
     padding: 0;
   }
 
-  .prose blockquote {
-    border-left: 4px solid #1976d2;
+  .content :global(blockquote) {
+    border-left: 3px solid #7c9eb2;
     padding-left: 1rem;
     margin: 1.5rem 0;
     font-style: italic;
     color: #666;
+  }
+
+  .content :global(a) {
+    color: #7c9eb2;
+    text-decoration: none;
+  }
+
+  .content :global(a:hover) {
+    text-decoration: underline;
   }
 </style>
