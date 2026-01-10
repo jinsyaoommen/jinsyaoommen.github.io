@@ -16,7 +16,7 @@ export default function Navigation() {
               fontWeight: 700,
             }}
           >
-            Your Name
+            Jinsy Oommen
           </Typography>
           <Box sx={{ display: 'flex', gap: 1 }}>
             <Button color="inherit" href="/">Home</Button>

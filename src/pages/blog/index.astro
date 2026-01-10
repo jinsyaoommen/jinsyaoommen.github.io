@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Container, Typography, Card, CardContent, CardActionArea, Chip, Box } from '@mui/material';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout title="Blog | Jinsy Oommen">
+  <Container maxWidth="md" sx={{ py: 4 }}>
+    <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 700, mb: 4 }}>
+      Blog
+    </Typography>
+
+    <div class="posts-grid">
+      {posts.map((post) => (
+        <Card sx={{ mb: 3 }}>
+          <CardActionArea href={`/blog/${post.id}`}>
+            <CardContent>
+              <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
+                {post.data.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                {post.data.pubDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                {post.data.description}
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                {post.data.tags.map((tag: string) => (
+                  <Chip label={tag} size="small" variant="outlined" />
+                ))}
+              </Box>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      ))}
+    </div>
+
+    {posts.length === 0 && (
+      <Typography variant="body1" color="text.secondary">
+        No posts yet. Check back soon!
+      </Typography>
+    )}
+  </Container>
+</Layout>

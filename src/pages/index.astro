@@ -1,16 +1,99 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Container, Typography, Box, Button, Card, CardContent, CardActionArea, Chip } from '@mui/material';
 
+const recentPosts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Jinsy Oommen | Personal Website">
+  <!-- Hero Section -->
+  <Box
+    sx={{
+      py: 10,
+      textAlign: 'center',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      color: 'white',
+    }}
+  >
+    <Container maxWidth="md">
+      <Typography variant="h2" component="h1" sx={{ fontWeight: 700, mb: 2 }}>
+        Hi, I'm Jinsy Oommen
+      </Typography>
+      <Typography variant="h5" sx={{ mb: 4, opacity: 0.9 }}>
+        Software Engineer | Builder | Lifelong Learner
+      </Typography>
+      <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+        <Button variant="contained" color="inherit" href="/blog" sx={{ color: '#667eea' }}>
+          Read My Blog
+        </Button>
+        <Button variant="outlined" color="inherit" href="/about">
+          About Me
+        </Button>
+      </Box>
+    </Container>
+  </Box>
+
+  <!-- Intro Section -->
+  <Container maxWidth="md" sx={{ py: 8 }}>
+    <Typography variant="h4" component="h2" sx={{ fontWeight: 600, mb: 3 }}>
+      Welcome
+    </Typography>
+    <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.8, mb: 4 }}>
+      Welcome to my corner of the internet. This is where I share my thoughts on software development,
+      technology, and the things I'm learning along the way. Feel free to explore my blog posts
+      or learn more about me.
+    </Typography>
+  </Container>
+
+  <!-- Recent Posts Section -->
+  {recentPosts.length > 0 && (
+    <Box sx={{ bgcolor: '#f5f5f5', py: 8 }}>
+      <Container maxWidth="md">
+        <Typography variant="h4" component="h2" sx={{ fontWeight: 600, mb: 4 }}>
+          Recent Posts
+        </Typography>
+        <div class="posts-grid">
+          {recentPosts.map((post) => (
+            <Card sx={{ mb: 3 }}>
+              <CardActionArea href={`/blog/${post.id}`}>
+                <CardContent>
+                  <Typography variant="h6" component="h3" sx={{ fontWeight: 600 }}>
+                    {post.data.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                    {post.data.pubDate.toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </Typography>
+                  <Typography variant="body2">
+                    {post.data.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          ))}
+        </div>
+        <Box sx={{ textAlign: 'center', mt: 4 }}>
+          <Button variant="outlined" href="/blog">
+            View All Posts
+          </Button>
+        </Box>
+      </Container>
+    </Box>
+  )}
+
+  <!-- Footer -->
+  <Box sx={{ py: 4, textAlign: 'center', borderTop: '1px solid #eee' }}>
+    <Container>
+      <Typography variant="body2" color="text.secondary">
+        &copy; {new Date().getFullYear()} Jinsy Oommen. All rights reserved.
+      </Typography>
+    </Container>
+  </Box>
+</Layout>
