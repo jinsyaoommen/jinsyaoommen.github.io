@@ -61,3 +61,11 @@ SaaS sold software.
 What feels like it's emerging now is selling capability.
 
 And just like strong platforms became more valuable when ecosystems grew around them, platforms that make space for intelligence will become more valuable, not less.
+
+## The Ground Is Shifting
+
+The ground is shifting beneath us. Will it stay that way, or will we be constantly chasing new paradigms?
+
+Maybe we'll be building modules that are only visible to you if you have permissions to see the data, appearing as you walk around. Intelligence layered onto the world, governed by trust and access.
+
+Fun to imagine, isn't it?
