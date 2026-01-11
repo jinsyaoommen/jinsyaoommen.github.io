@@ -40,7 +40,7 @@ export default function Navigation() {
           A few of my favorite things...
         </a>
         <a href="/blog" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
-          Blog
+          Reflections
         </a>
       </div>
     </nav>
