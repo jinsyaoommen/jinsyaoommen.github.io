@@ -44,7 +44,7 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
             <h2 class="year">{year}</h2>
             <div class="posts">
               {postsByYear[Number(year)].map((post) => (
-                <a href={`/blog/${post.id}`} class="post">
+                <a href={`/reflections/${post.id}`} class="post">
                   <span class="date">
                     {post.data.pubDate.toLocaleDateString('en-US', {
                       month: 'long',
@@ -56,7 +56,7 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
                   {post.data.tags.length > 0 && (
                     <div class="tags">
                       {post.data.tags.map((tag: string) => (
-                        <a href={`/blog/tags/${tag}`} class="tag" onclick="event.stopPropagation()">{tag}</a>
+                        <a href={`/reflections/tags/${tag}`} class="tag" onclick="event.stopPropagation()">{tag}</a>
                       ))}
                     </div>
                   )}

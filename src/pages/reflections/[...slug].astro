@@ -20,7 +20,7 @@ const { Content } = await render(post);
       <nav class="breadcrumbs">
         <a href="/">Home</a>
         <span class="separator">/</span>
-        <a href="/blog">Reflections</a>
+        <a href="/reflections">Reflections</a>
         <span class="separator">/</span>
         <span class="current">{post.data.title}</span>
       </nav>
@@ -37,7 +37,7 @@ const { Content } = await render(post);
         {post.data.tags.length > 0 && (
           <div class="tags">
             {post.data.tags.map((tag: string) => (
-              <a href={`/blog/tags/${tag}`} class="tag">{tag}</a>
+              <a href={`/reflections/tags/${tag}`} class="tag">{tag}</a>
             ))}
           </div>
         )}

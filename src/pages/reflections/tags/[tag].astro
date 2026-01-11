@@ -25,7 +25,7 @@ const posts = (await getCollection('blog'))
       <nav class="breadcrumbs">
         <a href="/">Home</a>
         <span class="separator">/</span>
-        <a href="/blog">Reflections</a>
+        <a href="/reflections">Reflections</a>
         <span class="separator">/</span>
         <span class="current">{tag}</span>
       </nav>
@@ -35,7 +35,7 @@ const posts = (await getCollection('blog'))
 
       <div class="posts">
         {posts.map((post) => (
-          <a href={`/blog/${post.id}`} class="post">
+          <a href={`/reflections/${post.id}`} class="post">
             <span class="date">
               {post.data.pubDate.toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -49,7 +49,7 @@ const posts = (await getCollection('blog'))
         ))}
       </div>
 
-      <a href="/blog" class="back">← All Reflections</a>
+      <a href="/reflections" class="back">← All Reflections</a>
     </div>
   </section>
 </Layout>

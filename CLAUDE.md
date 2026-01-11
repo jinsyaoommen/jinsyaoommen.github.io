@@ -34,7 +34,7 @@ src/
 ├── pages/
 │   ├── index.astro           # Homepage with hero + recent posts
 │   ├── about.astro           # About page
-│   ├── blog/
+│   ├── reflections/
 │   │   ├── index.astro       # Reflections listing (with search + year nav)
 │   │   ├── [...slug].astro   # Individual post pages
 │   │   └── tags/

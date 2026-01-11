@@ -21,7 +21,7 @@ const recentPosts = (await getCollection('blog'))
           This is where I reflect on products, people, and the choices that shape both. At Cascade Energy, I work with teams to build products that help organizations create a culture of energy management and turn insight into action.
         </p>
         <div class="cta-group">
-          <a href="/blog" class="btn primary">Read My Reflections</a>
+          <a href="/reflections" class="btn primary">Read My Reflections</a>
           <a href="/about" class="btn secondary">Learn More →</a>
         </div>
       </div>
@@ -41,7 +41,7 @@ const recentPosts = (await getCollection('blog'))
         <h2>Recent Reflections</h2>
         <div class="posts-grid">
           {recentPosts.map((post) => (
-            <a href={`/blog/${post.id}`} class="post-card">
+            <a href={`/reflections/${post.id}`} class="post-card">
               <span class="post-date">
                 {post.data.pubDate.toLocaleDateString('en-US', {
                   year: 'numeric',
@@ -54,7 +54,7 @@ const recentPosts = (await getCollection('blog'))
             </a>
           ))}
         </div>
-        <a href="/blog" class="view-all">View All Reflections →</a>
+        <a href="/reflections" class="view-all">View All Reflections →</a>
       </div>
     </section>
   )}
