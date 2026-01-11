@@ -77,7 +77,7 @@ After adding it to the Astro config, the build now automatically generates a sit
 
 **SEO Meta Tags**
 
-Claude updated my layout to include proper meta tags: description, author, canonical URLs, Open Graph tags for social sharing, and Twitter card tags. Each blog post's description now shows up correctly when shared on LinkedIn or Twitter.
+Claude updated my layout to include proper meta tags: description, author, canonical URLs, Open Graph tags, and Twitter card tags. These don't add visible buttons, but they control how links appear when shared. Now when someone pastes a link to one of my posts on LinkedIn or Twitter, it shows a nice preview with the title, description, and image instead of just a bare URL.
 
 **Google Search Console**
 

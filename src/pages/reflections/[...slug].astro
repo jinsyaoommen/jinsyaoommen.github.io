@@ -12,6 +12,9 @@ export async function getStaticPaths() {
 
 const post = Astro.props;
 const { Content } = await render(post);
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const shareText = `${post.data.title} by Jinsy Oommen`;
 ---
 
 <Layout title={`${post.data.title} | Jinsy Oommen`} description={post.data.description}>
@@ -45,6 +48,30 @@ const { Content } = await render(post);
 
       <div class="content">
         <Content />
+      </div>
+
+      <div class="share">
+        <span class="share-label">Share this</span>
+        <div class="share-buttons">
+          <a
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="share-button linkedin"
+            aria-label="Share on LinkedIn"
+          >
+            LinkedIn
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(shareText)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="share-button twitter"
+            aria-label="Share on X (Twitter)"
+          >
+            X
+          </a>
+        </div>
       </div>
     </div>
   </article>
@@ -205,5 +232,53 @@ const { Content } = await render(post);
 
   .content :global(a:hover) {
     text-decoration: underline;
+  }
+
+  .share {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .share-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .share-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .share-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .share-button.linkedin {
+    background: #0077b5;
+    color: white;
+  }
+
+  .share-button.linkedin:hover {
+    background: #005e93;
+  }
+
+  .share-button.twitter {
+    background: #000;
+    color: white;
+  }
+
+  .share-button.twitter:hover {
+    background: #333;
   }
 </style>
