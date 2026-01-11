@@ -18,6 +18,7 @@ I had been curious about Claude Code, Anthropic's AI coding assistant. On a whim
 - An About page with my bio and speaking links
 - A "Favorites" page for quotes and recommendations
 - Automatic deployment to GitHub Pages
+- A custom domain with HTTPS
 
 ## The Numbers
 
@@ -46,10 +47,23 @@ The site runs on Astro with React components, styled with plain CSS. It's fast, 
 
 I'm still migrating old articles from Dev.to and other places, but now my writing finally has a home.
 
+## Adding a Custom Domain
+
+After getting the site live on GitHub Pages, I wanted a proper domain. I purchased thegoodoommen.com through Cloudflare for about $10/year. The setup process was straightforward:
+
+1. Buy the domain on Cloudflare
+2. Add DNS records pointing to GitHub's servers (4 A records and 1 CNAME)
+3. Set the records to "DNS only" mode so GitHub can verify ownership
+4. Add the custom domain in GitHub Pages settings
+5. Wait a few minutes for GitHub to issue an SSL certificate
+6. Enable "Enforce HTTPS"
+
+Claude walked me through each step, even running `dig` commands to verify DNS propagation before I configured GitHub. The whole process took about 15 minutes, most of which was waiting for the SSL certificate.
+
 ## The Takeaway
 
 This isn't about AI replacing developers. I've been writing code for over two decades. What Claude did was remove the friction that kept me from starting. The setup, the config files, the deployment pipeline, the CSS tweaks. All the small annoyances that make side projects feel heavy.
 
 Sometimes the best tool is the one that helps you finally ship the thing you've been putting off.
 
-The site is live at [jinsyaoommen.github.io](https://jinsyaoommen.github.io). The code is public. And for the first time in years, my writing has a home.
+The site is live at [thegoodoommen.com](https://thegoodoommen.com). The code is public. And for the first time in years, my writing has a home.
