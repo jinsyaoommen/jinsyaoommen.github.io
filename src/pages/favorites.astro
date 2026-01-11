@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Favorites | Jinsy Oommen">
+  <section class="favorites">
+    <div class="container">
+      <h1>Favorites</h1>
+      <p class="intro">A collection of things I love — products, quotes, books, and ideas that have shaped how I think and work.</p>
+
+      <hr />
+
+      <h2>Quotes</h2>
+      <ul class="quotes">
+        <li>
+          <blockquote>"We are what we repeatedly do. Excellence, then, is not an act, but a habit."</blockquote>
+          <span class="attribution">— Aristotle</span>
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>Books</h2>
+      <ul>
+        <li>The Five Dysfunctions of a Team — Patrick Lencioni</li>
+      </ul>
+
+      <hr />
+
+      <h2>Products I Love</h2>
+      <ul>
+        <li>Coming soon...</li>
+      </ul>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .favorites {
+    padding: 4rem 0;
+    min-height: calc(100vh - 64px);
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2d2d2d;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #2d2d2d;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 2.5rem 0;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 0.5rem;
+  }
+
+  .quotes {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .quotes li {
+    margin-bottom: 1.5rem;
+  }
+
+  blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #444;
+    border-left: 3px solid #7c9eb2;
+    padding-left: 1rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .attribution {
+    font-size: 0.9rem;
+    color: #888;
+    padding-left: 1rem;
+  }
+</style>
