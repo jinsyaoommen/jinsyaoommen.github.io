@@ -17,7 +17,13 @@ const { Content } = await render(post);
 <Layout title={`${post.data.title} | Jinsy Oommen`}>
   <article class="post">
     <div class="container">
-      <a href="/blog" class="back">← Back to Blog</a>
+      <nav class="breadcrumbs">
+        <a href="/">Home</a>
+        <span class="separator">/</span>
+        <a href="/blog">Blog</a>
+        <span class="separator">/</span>
+        <span class="current">{post.data.title}</span>
+      </nav>
 
       <header>
         <span class="date">
@@ -56,16 +62,30 @@ const { Content } = await render(post);
     padding: 0 2rem;
   }
 
-  .back {
-    display: inline-block;
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.875rem;
-    color: #7c9eb2;
-    text-decoration: none;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
   }
 
-  .back:hover {
+  .breadcrumbs a {
+    color: #7c9eb2;
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
     text-decoration: underline;
+  }
+
+  .breadcrumbs .separator {
+    color: #ccc;
+  }
+
+  .breadcrumbs .current {
+    color: #888;
   }
 
   header {
