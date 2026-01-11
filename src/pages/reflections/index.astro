@@ -26,6 +26,7 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
     <div class="header">
       <h1>Reflections</h1>
       <p class="intro">Feel free to copy and adapt this. It's the accumulation of years of listening, observing, and learning from the people around me, from seeing both what works and what doesn't. None of this came from one place or one moment. It takes a village to grow wisdom, and this is my small reflection of that shared learning.</p>
+      <a href="/rss.xml" class="subscribe-link" target="_blank">Subscribe via RSS</a>
       <div id="search" class="search-container"></div>
     </div>
 
@@ -155,6 +156,18 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
     color: #666;
     font-style: italic;
     max-width: 700px;
+  }
+
+  .subscribe-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #7c9eb2;
+    text-decoration: none;
+  }
+
+  .subscribe-link:hover {
+    text-decoration: underline;
   }
 
   .search-container {
