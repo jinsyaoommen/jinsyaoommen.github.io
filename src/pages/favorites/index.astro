@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const sections = [
+  { name: 'Quotes', href: '/favorites/quotes', description: 'Words that have shaped how I think' },
+  { name: 'Books', href: '/favorites/books', description: 'Books that have influenced me' },
+  { name: 'Products', href: '/favorites/products', description: 'Things I use and love' },
+  { name: 'Places', href: '/favorites/places', description: 'Places that have left a mark' },
+];
+---
+
+<Layout title="Favorites | Jinsy Oommen">
+  <section class="favorites">
+    <div class="container">
+      <h1>A few of my favorite things...</h1>
+      <p class="intro">A collection of things I love — products, quotes, books, places, and ideas that have shaped how I think and work.</p>
+
+      <div class="grid">
+        {sections.map((section) => (
+          <a href={section.href} class="card">
+            <h2>{section.name}</h2>
+            <p>{section.description}</p>
+            <span class="arrow">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .favorites {
+    padding: 4rem 0;
+    min-height: calc(100vh - 64px);
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2d2d2d;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .card {
+    display: block;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .card h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #2d2d2d;
+    margin-bottom: 0.5rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #888;
+    transition: transform 0.2s ease;
+  }
+
+  .card:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
