@@ -65,7 +65,7 @@ public/
 ## Naming Conventions
 - Blog section is called **"Reflections"** (not "Blog")
 - Route is `/reflections` (not `/blog`)
-- Navigation shows: About, A few of my favorite things..., Reflections
+- Navigation shows: About, Reflections (favorites link hidden while under construction)
 
 ## Design Decisions
 - Minimal, clean aesthetic with muted colors
@@ -102,9 +102,19 @@ public/
 - Focus styles with visible outline
 
 ## Favorites Pages Status
-All marked "Under construction" with yellow banner. Places has placeholder cards for:
-- Machu Picchu, Kerala, Bangalore, Singapore (Changi Airport)
-- Yellowstone, Crater Lake, Redwood, Mt Hood
+All marked "Under construction" with yellow banner. Favorites link hidden from nav.
+
+**Products** (`/favorites/products`) - Card grid + modal, same structure as places
+- Current products: Tineco Wet/Dry Vacuum, Instant Pot Pressure Cooker
+- Images stored in `public/products/`
+
+**Places** (`/favorites/places`) - Card grid + modal
+- Placeholder cards for: Machu Picchu, Kerala, Bangalore, Singapore, Yellowstone, Crater Lake, Redwood, Mt Hood
+
+**IMPORTANT - Image sizes for favorites:**
+- Resize images to ~400x400 pixels before adding
+- Use `sips -s format jpeg -z 400 400 input.webp --out output.jpeg` to resize
+- Keeps cards and modals looking consistent
 
 ## SEO Setup
 - **Sitemap**: https://thegoodoommen.com/sitemap-index.xml (excludes /writing)
