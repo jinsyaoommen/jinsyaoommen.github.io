@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Writing | Jinsy Oommen" description="A private space for longer writing.">
+  <section class="writing">
+    <div class="container">
+      <h1>Writing</h1>
+      <p class="intro">A private space for longer work. Not linked anywhere.</p>
+
+      <div class="project">
+        <h2>Book Project</h2>
+        <p class="status">Status: Just getting started</p>
+
+        <div class="chapters">
+          <p class="placeholder">Chapters will appear here as you write them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .writing {
+    padding: 4rem 0;
+    min-height: calc(100vh - 64px);
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2d2d2d;
+  }
+
+  .intro {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 3rem;
+  }
+
+  .project {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .project h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin-bottom: 0.5rem;
+  }
+
+  .status {
+    font-size: 0.85rem;
+    color: #7c9eb2;
+    margin-bottom: 2rem;
+  }
+
+  .chapters {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 1.5rem;
+  }
+
+  .placeholder {
+    color: #888;
+    font-style: italic;
+  }
+</style>
