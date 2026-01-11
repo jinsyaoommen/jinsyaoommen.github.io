@@ -88,7 +88,7 @@ To get the site indexed by Google:
 3. Verify ownership via DNS (add a TXT record in Cloudflare)
 4. Submit your sitemap (enter the full URL: `https://yourdomain.com/sitemap-index.xml`)
 
-Google said it would take a day or two to process, but now my site will actually show up when someone searches for my name.
+Google said it would take a day or two to process.
 
 ## The Takeaway
 
