@@ -1,7 +1,7 @@
 ---
 title: "13 Things I Learnt in My First Year Leading a Software Team"
 description: "Lessons from my first year as a tech lead on an embedded software team within an energy efficiency consultancy."
-pubDate: 2025-06-11
+pubDate: 2019-07-18
 tags: ["management", "tech lead", "leadership"]
 ---
 

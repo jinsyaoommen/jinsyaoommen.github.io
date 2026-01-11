@@ -1,7 +1,7 @@
 ---
 title: "Designing for Respect: Why Time to Value Matters"
 description: "Time to value isn't just a metric. It's a feeling. It's about caring about people's energy and showing respect through thoughtful design."
-pubDate: 2024-10-19
+pubDate: 2025-02-07
 tags: ["product", "design", "leadership"]
 ---
 
