@@ -19,12 +19,13 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
 <Layout title="Blog | Jinsy Oommen">
   <section class="blog">
+    <div class="header">
+      <h1>Blog</h1>
+      <p class="intro">Feel free to copy and adapt this. It's the accumulation of years of listening, observing, and learning from the people around me, from seeing both what works and what doesn't. None of this came from one place or one moment. It takes a village to grow wisdom, and this is my small reflection of that shared learning.</p>
+    </div>
+
     <div class="layout">
-      <div class="container">
-        <h1>Blog</h1>
-
-        <p class="intro">Feel free to copy and adapt this. It's the accumulation of years of listening, observing, and learning from the people around me, from seeing both what works and what doesn't. None of this came from one place or one moment. It takes a village to grow wisdom, and this is my small reflection of that shared learning.</p>
-
+      <div class="content">
         {years.map((year) => (
           <div class="year-group" id={`year-${year}`}>
             <h2 class="year">{year}</h2>
@@ -75,12 +76,37 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
     min-height: calc(100vh - 64px);
   }
 
+  .header {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #2d2d2d;
+  }
+
+  .intro {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+    max-width: 700px;
+  }
+
   .layout {
     display: flex;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 2rem;
     gap: 3rem;
+  }
+
+  .content {
+    flex: 1;
+    max-width: 700px;
   }
 
   .sidebar {
@@ -113,25 +139,6 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
   .year-link:hover {
     color: #2d2d2d;
-  }
-
-  .container {
-    flex: 1;
-    max-width: 700px;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #2d2d2d;
-  }
-
-  .intro {
-    font-size: 1rem;
-    color: #666;
-    font-style: italic;
-    margin-bottom: 3rem;
   }
 
   .year-group {
@@ -208,7 +215,7 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
   @media (max-width: 768px) {
     .layout {
-      flex-direction: column;
+      flex-direction: column-reverse;
       gap: 1.5rem;
     }
 
