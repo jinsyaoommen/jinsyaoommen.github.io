@@ -1,37 +1,64 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const sections = ['Quotes', 'Books', 'Products', 'Places'];
 ---
 
 <Layout title="Favorites | Jinsy Oommen">
   <section class="favorites">
-    <div class="container">
+    <div class="header">
       <h1>A few of my favorite things...</h1>
-      <p class="intro">A collection of things I love — products, quotes, books, and ideas that have shaped how I think and work.</p>
+      <p class="intro">A collection of things I love — products, quotes, books, places, and ideas that have shaped how I think and work.</p>
+    </div>
 
-      <hr />
+    <div class="layout">
+      <div class="content">
+        <div class="section" id="quotes">
+          <h2>Quotes</h2>
+          <ul class="quotes">
+            <li>
+              <blockquote>"We are what we repeatedly do. Excellence, then, is not an act, but a habit."</blockquote>
+              <span class="attribution">— Aristotle</span>
+            </li>
+          </ul>
+        </div>
 
-      <h2>Quotes</h2>
-      <ul class="quotes">
-        <li>
-          <blockquote>"We are what we repeatedly do. Excellence, then, is not an act, but a habit."</blockquote>
-          <span class="attribution">— Aristotle</span>
-        </li>
-      </ul>
+        <hr />
 
-      <hr />
+        <div class="section" id="books">
+          <h2>Books</h2>
+          <ul>
+            <li>The Five Dysfunctions of a Team — Patrick Lencioni</li>
+          </ul>
+        </div>
 
-      <h2>Books</h2>
-      <ul>
-        <li>The Five Dysfunctions of a Team — Patrick Lencioni</li>
-      </ul>
+        <hr />
 
-      <hr />
+        <div class="section" id="products">
+          <h2>Products</h2>
+          <ul>
+            <li>Coming soon...</li>
+          </ul>
+        </div>
 
-      <h2>Products I Love</h2>
-      <ul>
-        <li>Coming soon...</li>
-      </ul>
+        <hr />
 
+        <div class="section" id="places">
+          <h2>Places</h2>
+          <ul>
+            <li>Coming soon...</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <nav class="section-nav">
+          <span class="nav-label">Jump to</span>
+          {sections.map((section) => (
+            <a href={`#${section.toLowerCase()}`} class="section-link">{section}</a>
+          ))}
+        </nav>
+      </aside>
     </div>
   </section>
 </Layout>
@@ -42,9 +69,9 @@ import Layout from '../layouts/Layout.astro';
     min-height: calc(100vh - 64px);
   }
 
-  .container {
-    max-width: 700px;
-    margin: 0 auto;
+  .header {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
     padding: 0 2rem;
   }
 
@@ -58,7 +85,56 @@ import Layout from '../layouts/Layout.astro';
   .intro {
     font-size: 1.1rem;
     color: #666;
-    margin-bottom: 2rem;
+    max-width: 700px;
+  }
+
+  .layout {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 3rem;
+  }
+
+  .content {
+    flex: 1;
+    max-width: 700px;
+  }
+
+  .sidebar {
+    flex-shrink: 0;
+    width: 100px;
+  }
+
+  .section-nav {
+    position: sticky;
+    top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-label {
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+  }
+
+  .section-link {
+    font-size: 0.9rem;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .section-link:hover {
+    color: #2d2d2d;
+  }
+
+  .section {
+    scroll-margin-top: 2rem;
   }
 
   h2 {
@@ -108,5 +184,27 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.9rem;
     color: #888;
     padding-left: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column-reverse;
+      gap: 1.5rem;
+    }
+
+    .sidebar {
+      width: 100%;
+    }
+
+    .section-nav {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
+    .nav-label {
+      width: 100%;
+    }
   }
 </style>
