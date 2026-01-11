@@ -214,11 +214,11 @@ const places = [
     }
   }
 
-  // Event listeners
-  cards.forEach((card, index) => {
-    card.addEventListener('click', () => openModal(index));
-    card.style.cursor = 'pointer';
-  });
+  // Event listeners - disabled for now
+  // cards.forEach((card, index) => {
+  //   card.addEventListener('click', () => openModal(index));
+  //   card.style.cursor = 'pointer';
+  // });
 
   closeBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', closeModal);
