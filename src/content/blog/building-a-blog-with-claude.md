@@ -2,7 +2,7 @@
 title: "Building a Blog in a Day with Claude Code"
 description: "How I consolidated years of scattered writing into a personal website with the help of an AI coding assistant."
 pubDate: 2026-01-10
-tags: ["ai", "productivity", "writing"]
+tags: ["ai", "productivity", "writing", "seo"]
 ---
 
 For years, my writing has lived in scattered places: a few posts on Dev.to, drafts in Google Docs, notes in Notion, and ideas that never made it past a sticky note. I always wanted a simple personal site to bring it all together, but building and maintaining a website felt like one more thing on an already full plate.
@@ -60,6 +60,35 @@ After getting the site live on GitHub Pages, I wanted a proper domain. I purchas
 6. Enable "Enforce HTTPS"
 
 Claude walked me through each step, even running `dig` commands to verify DNS propagation before I configured GitHub. The whole process took about 15 minutes, most of which was waiting for the SSL certificate.
+
+## Making the Site Discoverable
+
+Having a site is one thing. Having people find it is another. I asked Claude to help with SEO basics:
+
+**Adding a Sitemap**
+
+Astro has an official sitemap integration. Claude installed it and configured it in a few seconds:
+
+```bash
+npm install @astrojs/sitemap
+```
+
+After adding it to the Astro config, the build now automatically generates a sitemap at `/sitemap-index.xml` that search engines can crawl.
+
+**SEO Meta Tags**
+
+Claude updated my layout to include proper meta tags: description, author, canonical URLs, Open Graph tags for social sharing, and Twitter card tags. Each blog post's description now shows up correctly when shared on LinkedIn or Twitter.
+
+**Google Search Console**
+
+To get the site indexed by Google:
+
+1. Go to [Google Search Console](https://search.google.com/search-console)
+2. Add your domain as a property
+3. Verify ownership via DNS (add a TXT record in Cloudflare)
+4. Submit your sitemap (enter the full URL: `https://yourdomain.com/sitemap-index.xml`)
+
+Google said it would take a day or two to process, but now my site will actually show up when someone searches for my name.
 
 ## The Takeaway
 
