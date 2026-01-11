@@ -12,7 +12,7 @@ Servant leadership reminds me that my role is not to be the smartest person in t
 ## Strategy and Direction
 
 - Did I provide clarity on where we were going and why?
-- Did I help people understand outcomes, not just initiatives?
+- Did I help the team understand outcomes, not just initiatives?
 - Did I reduce confusion or add to it?
 - Did I make prioritization decisions that protected focus and energy?
 - Did my direction make it easier for others to act with confidence?
