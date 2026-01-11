@@ -44,7 +44,7 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
             <h2 class="year">{year}</h2>
             <div class="posts">
               {postsByYear[Number(year)].map((post) => (
-                <a href={`/reflections/${post.id}`} class="post">
+                <div class="post" data-href={`/reflections/${post.id}`}>
                   <span class="date">
                     {post.data.pubDate.toLocaleDateString('en-US', {
                       month: 'long',
@@ -56,11 +56,11 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
                   {post.data.tags.length > 0 && (
                     <div class="tags">
                       {post.data.tags.map((tag: string) => (
-                        <a href={`/reflections/tags/${tag}`} class="tag" onclick="event.stopPropagation()">{tag}</a>
+                        <a href={`/reflections/tags/${tag}`} class="tag">{tag}</a>
                       ))}
                     </div>
                   )}
-                </a>
+                </div>
               ))}
             </div>
           </div>
@@ -82,6 +82,16 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  document.querySelectorAll('.post[data-href]').forEach(post => {
+    post.style.cursor = 'pointer';
+    post.addEventListener('click', (e) => {
+      if (e.target.closest('.tag')) return;
+      window.location.href = post.dataset.href;
+    });
+  });
+</script>
 
 <style>
   .blog {
