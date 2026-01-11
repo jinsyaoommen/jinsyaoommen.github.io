@@ -75,6 +75,10 @@ const places = [
       <h1>Places</h1>
       <p class="intro">Places that have left a mark.</p>
 
+      <div class="under-construction">
+        Under construction
+      </div>
+
       <div class="grid">
         {places.map((place, index) => (
           <div class="card" data-index={index}>
@@ -275,7 +279,17 @@ const places = [
   .intro {
     font-size: 1.1rem;
     color: #666;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .under-construction {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #fff3cd;
+    color: #856404;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
   }
 
   .grid {

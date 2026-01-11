@@ -16,6 +16,10 @@ import Layout from '../../layouts/Layout.astro';
       <h1>Quotes</h1>
       <p class="intro">Words that have shaped how I think.</p>
 
+      <div class="under-construction">
+        Under construction
+      </div>
+
       <ul class="quotes">
         <li>
           <blockquote>"The standard you walk past is the standard you accept."</blockquote>
@@ -78,7 +82,17 @@ import Layout from '../../layouts/Layout.astro';
   .intro {
     font-size: 1.1rem;
     color: #666;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .under-construction {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #fff3cd;
+    color: #856404;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
   }
 
   .quotes {
