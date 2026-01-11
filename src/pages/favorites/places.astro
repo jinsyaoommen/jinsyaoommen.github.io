@@ -2,14 +2,62 @@
 import Layout from '../../layouts/Layout.astro';
 
 const places = [
-  { name: 'Machu Picchu', location: 'Peru', image: '' },
-  { name: 'Kerala', location: 'India', image: '' },
-  { name: 'Bangalore', location: 'India', image: '' },
-  { name: 'Changi Airport', location: 'Singapore', image: '' },
-  { name: 'Yellowstone National Park', location: 'USA', image: '' },
-  { name: 'Crater Lake National Park', location: 'USA', image: '' },
-  { name: 'Redwood National Park', location: 'USA', image: '' },
-  { name: 'Mt Hood', location: 'Oregon, USA', image: '' },
+  {
+    name: 'Machu Picchu',
+    location: 'Peru',
+    image: '',
+    description: '',
+    gallery: []
+  },
+  {
+    name: 'Kerala',
+    location: 'India',
+    image: '',
+    description: '',
+    gallery: []
+  },
+  {
+    name: 'Bangalore',
+    location: 'India',
+    image: '',
+    description: '',
+    gallery: []
+  },
+  {
+    name: 'Changi Airport',
+    location: 'Singapore',
+    image: '',
+    description: '',
+    gallery: []
+  },
+  {
+    name: 'Yellowstone National Park',
+    location: 'USA',
+    image: '',
+    description: '',
+    gallery: []
+  },
+  {
+    name: 'Crater Lake National Park',
+    location: 'USA',
+    image: '',
+    description: '',
+    gallery: []
+  },
+  {
+    name: 'Redwood National Park',
+    location: 'USA',
+    image: '',
+    description: '',
+    gallery: []
+  },
+  {
+    name: 'Mt Hood',
+    location: 'Oregon, USA',
+    image: '',
+    description: '',
+    gallery: []
+  },
 ];
 ---
 
@@ -28,8 +76,8 @@ const places = [
       <p class="intro">Places that have left a mark.</p>
 
       <div class="grid">
-        {places.map((place) => (
-          <div class="card">
+        {places.map((place, index) => (
+          <div class="card" data-index={index}>
             <div class="image-container">
               {place.image ? (
                 <img src={place.image} alt={place.name} />
@@ -50,7 +98,134 @@ const places = [
       </div>
     </div>
   </section>
+
+  <!-- Modal -->
+  <div class="modal" id="placeModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-body">
+        <div class="modal-gallery">
+          <div class="modal-image-container">
+            <div class="modal-placeholder">
+              <span>+</span>
+            </div>
+          </div>
+          <div class="gallery-thumbnails"></div>
+        </div>
+        <div class="modal-info">
+          <h2 class="modal-title"></h2>
+          <span class="modal-location"></span>
+          <p class="modal-description"></p>
+        </div>
+      </div>
+      <div class="modal-nav">
+        <button class="nav-prev" aria-label="Previous">&larr; Prev</button>
+        <button class="nav-next" aria-label="Next">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<script define:vars={{ places }}>
+  const modal = document.getElementById('placeModal');
+  const backdrop = modal.querySelector('.modal-backdrop');
+  const closeBtn = modal.querySelector('.modal-close');
+  const prevBtn = modal.querySelector('.nav-prev');
+  const nextBtn = modal.querySelector('.nav-next');
+  const cards = document.querySelectorAll('.card');
+
+  let currentIndex = 0;
+
+  function openModal(index) {
+    currentIndex = index;
+    updateModal();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function updateModal() {
+    const place = places[currentIndex];
+    modal.querySelector('.modal-title').textContent = place.name;
+    modal.querySelector('.modal-location').textContent = place.location;
+    modal.querySelector('.modal-description').textContent = place.description || 'More details coming soon...';
+
+    const imageContainer = modal.querySelector('.modal-image-container');
+    if (place.image || (place.gallery && place.gallery.length > 0)) {
+      const imgSrc = place.image || place.gallery[0];
+      imageContainer.innerHTML = `<img src="${imgSrc}" alt="${place.name}" />`;
+    } else {
+      imageContainer.innerHTML = `<div class="modal-placeholder"><span>+</span></div>`;
+    }
+
+    // Update gallery thumbnails
+    const thumbnailsContainer = modal.querySelector('.gallery-thumbnails');
+    if (place.gallery && place.gallery.length > 1) {
+      thumbnailsContainer.innerHTML = place.gallery.map((img, i) =>
+        `<div class="thumbnail ${i === 0 ? 'active' : ''}" data-img="${img}">
+          <img src="${img}" alt="${place.name}" />
+        </div>`
+      ).join('');
+      thumbnailsContainer.style.display = 'flex';
+    } else {
+      thumbnailsContainer.innerHTML = '';
+      thumbnailsContainer.style.display = 'none';
+    }
+
+    // Update nav buttons
+    prevBtn.style.visibility = currentIndex > 0 ? 'visible' : 'hidden';
+    nextBtn.style.visibility = currentIndex < places.length - 1 ? 'visible' : 'hidden';
+  }
+
+  function goToPrev() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateModal();
+    }
+  }
+
+  function goToNext() {
+    if (currentIndex < places.length - 1) {
+      currentIndex++;
+      updateModal();
+    }
+  }
+
+  // Event listeners
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => openModal(index));
+    card.style.cursor = 'pointer';
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  prevBtn.addEventListener('click', goToPrev);
+  nextBtn.addEventListener('click', goToNext);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') goToPrev();
+    if (e.key === 'ArrowRight') goToNext();
+  });
+
+  // Thumbnail click
+  modal.addEventListener('click', (e) => {
+    const thumbnail = e.target.closest('.thumbnail');
+    if (thumbnail) {
+      const img = thumbnail.dataset.img;
+      modal.querySelector('.modal-image-container').innerHTML = `<img src="${img}" alt="" />`;
+      modal.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+      thumbnail.classList.add('active');
+    }
+  });
+</script>
 
 <style>
   .page {
@@ -178,6 +353,181 @@ const places = [
     color: rgba(255,255,255,0.8);
   }
 
+  /* Modal Styles */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .modal.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal-content {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+
+  .modal.open .modal-content {
+    transform: scale(1);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .modal-close:hover {
+    background: rgba(0,0,0,0.7);
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-gallery {
+    background: #f5f5f5;
+  }
+
+  .modal-image-container {
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modal-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #e5e5e5 0%, #d0d0d0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-placeholder span {
+    font-size: 3rem;
+    color: #bbb;
+  }
+
+  .gallery-thumbnails {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    overflow-x: auto;
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .thumbnail:hover,
+  .thumbnail.active {
+    opacity: 1;
+  }
+
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modal-info {
+    padding: 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .modal-location {
+    font-size: 0.9rem;
+    color: #888;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .modal-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .modal-nav button {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+    transition: all 0.2s ease;
+  }
+
+  .modal-nav button:hover {
+    background: #f5f5f5;
+    border-color: #ccc;
+  }
+
   @media (max-width: 900px) {
     .grid {
       grid-template-columns: repeat(3, 1fr);
@@ -187,6 +537,19 @@ const places = [
   @media (max-width: 600px) {
     .grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+      width: 95%;
+      max-height: 95vh;
+    }
+
+    .modal-info {
+      padding: 1rem;
+    }
+
+    .modal-nav {
+      padding: 0 1rem 1rem;
     }
   }
 
