@@ -28,6 +28,7 @@ Here's what it actually took:
 - **~2 hours of active work** spread across the day (9:30 AM to 6:45 PM), with breaks for hanging out with family, laundry, and cooking dinner in between
 - **1 conversation** with Claude Code that I could resume at any point
 - **$0 hosting cost** using GitHub Pages
+- **$10/year** for a custom domain (helps having a unique last name)
 
 I don't have exact token counts, but this was an iterative conversation. My rough estimate is somewhere between 100,000-200,000 tokens for the full session. At current Claude pricing, that's probably $3-6 worth of AI assistance to build and deploy an entire website.
 
