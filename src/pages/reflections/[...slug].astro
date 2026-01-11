@@ -14,7 +14,7 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={`${post.data.title} | Jinsy Oommen`}>
+<Layout title={`${post.data.title} | Jinsy Oommen`} description={post.data.description}>
   <article class="post">
     <div class="container">
       <nav class="breadcrumbs">
