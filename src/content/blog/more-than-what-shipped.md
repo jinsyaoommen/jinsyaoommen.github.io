@@ -42,8 +42,6 @@ Servant leadership reminds me that my role is not to be the smartest person in t
 
 ## Enabling the Team
 
-Servant leadership shows up most clearly here.
-
 - Did I remove obstacles or become one?
 - Did I trust others with real responsibility and ownership?
 - Did I help people grow in confidence and judgment?
@@ -67,14 +65,10 @@ Values matter most when tradeoffs are hard.
 - Did I ask for help when I needed it?
 - Did I remember that leadership is practiced, not achieved?
 
----
-
-At the end of this reflection, I always come back to one quiet question:
-
-*If someone looked at my calendar, my decisions, and my conversations this year, would they be able to tell that I lead to serve?*
-
 Did I get an A in all of this? No. Not even close.
 
-But awareness is the real work. Awareness shows me where I supported others well and where I fell short. It tells me what patterns to keep, what habits to change, and what I should work on next.
+Some days I lead with clarity and steadiness. Other days I move too fast, hold too tightly, or miss opportunities to support someone better. I get mad. I get upset. I get stressed. Sometimes I take that stress out on the person I’m engaging with. Then I feel guilty. I feel fear. I worry that the decisions we’re making are setting us back or that we’re falling behind. And I’m learning that all of that is part of caring deeply about the work and the people. It doesn’t make me a bad leader. It makes me human.
 
-That clarity is what prepares me for the year ahead far more than any score ever could.
+This checklist doesn’t exist to prove that I did everything right. It exists to remind me that leadership is something I am still learning, still practicing, and still growing into. What matters is not that these feelings show up, but what I do when they do. Do I pause, reflect, repair, and try again with more care?
+
+Awareness is the real gift. It helps me see where I showed up well and where I need to do better. It gives me direction, not a grade. And that is what tells me what to work on next.
