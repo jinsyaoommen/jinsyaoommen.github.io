@@ -1,5 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const places = [
+  { name: 'Machu Picchu', location: 'Peru', image: '' },
+  // Add more places here:
+  // { name: 'Place Name', location: 'Country', image: '/places/filename.jpg' },
+];
 ---
 
 <Layout title="Places | Jinsy Oommen">
@@ -16,9 +22,25 @@ import Layout from '../../layouts/Layout.astro';
       <h1>Places</h1>
       <p class="intro">Places that have left a mark.</p>
 
-      <ul class="list">
-        <li>Machu Picchu</li>
-      </ul>
+      <div class="grid">
+        {places.map((place) => (
+          <div class="card">
+            <div class="image-container">
+              {place.image ? (
+                <img src={place.image} alt={place.name} />
+              ) : (
+                <div class="placeholder">
+                  <span>+</span>
+                </div>
+              )}
+            </div>
+            <div class="info">
+              <h2>{place.name}</h2>
+              <span class="location">{place.location}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 </Layout>
@@ -30,7 +52,7 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   .container {
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 2rem;
   }
@@ -74,14 +96,73 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 3rem;
   }
 
-  .list {
-    padding-left: 1.5rem;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 
-  .list li {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 0.75rem;
+  .card {
+    background: #f9f9f9;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .image-container {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .placeholder {
+    width: 100%;
+    height: 100%;
+    background: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder span {
+    font-size: 2rem;
+    color: #bbb;
+  }
+
+  .info {
+    padding: 1rem;
+  }
+
+  .info h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2d2d2d;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .location {
+    font-size: 0.85rem;
+    color: #888;
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
