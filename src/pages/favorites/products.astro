@@ -255,14 +255,16 @@ const products = [
   }
 
   .image-container {
-    aspect-ratio: 3 / 4;
+    width: 200px;
+    height: 200px;
     overflow: hidden;
+    margin: 0 auto;
   }
 
   .image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
   }
 
@@ -380,10 +382,12 @@ const products = [
   }
 
   .modal-image-container {
-    aspect-ratio: 16 / 9;
+    width: 400px;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
   }
 
   .modal-image-container img {
