@@ -37,7 +37,7 @@ const { Content } = await render(post);
         {post.data.tags.length > 0 && (
           <div class="tags">
             {post.data.tags.map((tag: string) => (
-              <span class="tag">{tag}</span>
+              <a href={`/blog/tags/${tag}`} class="tag">{tag}</a>
             ))}
           </div>
         )}
@@ -118,6 +118,13 @@ const { Content } = await render(post);
     background: #e5e5e5;
     color: #666;
     border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .tag:hover {
+    background: #7c9eb2;
+    color: white;
   }
 
   .content {
