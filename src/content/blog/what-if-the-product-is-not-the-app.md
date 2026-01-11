@@ -13,6 +13,8 @@ It echoes what happened years ago with platforms like Salesforce. First came ful
 
 AI feels like the beginning of a similar shift.
 
+I read that Walmart gave all their corporate employees access to ChatGPT and are heavily investing in AI fluency across their workforce. If that's happening at scale, it feels natural to assume that knowledge work and office work will start shifting to text-based interfaces like ChatGPT and Claude. The conversation becomes the workspace.
+
 Most product thinking still starts with the application: a UI, a workflow, a database, a subscription. But AI introduces something different. Capabilities that don't need to live in one interface. Logic that can be called from anywhere. Intelligence that feels modular and portable.
 
 So the question becomes less about what app is being built, and more about what intelligence is being created.
