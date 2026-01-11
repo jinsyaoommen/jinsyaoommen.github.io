@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Chapter 1 | Writing | Jinsy Oommen" description="Chapter 1">
+  <section class="chapter">
+    <div class="container">
+      <nav class="breadcrumbs">
+        <a href="/writing">Writing</a>
+        <span class="separator">/</span>
+        <span class="current">Chapter 1</span>
+      </nav>
+
+      <header>
+        <span class="chapter-number">Chapter 1</span>
+        <h1>Untitled</h1>
+      </header>
+
+      <div class="content">
+        <p>Start writing here...</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .chapter {
+    padding: 4rem 0;
+    min-height: calc(100vh - 64px);
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumbs a {
+    color: #7c9eb2;
+    text-decoration: none;
+  }
+
+  .breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumbs .separator {
+    color: #ccc;
+  }
+
+  .breadcrumbs .current {
+    color: #888;
+  }
+
+  header {
+    margin-bottom: 3rem;
+  }
+
+  .chapter-number {
+    font-size: 0.8rem;
+    color: #7c9eb2;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin: 0.5rem 0 0;
+    line-height: 1.2;
+  }
+
+  .content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .content p {
+    margin-bottom: 1.5rem;
+  }
+</style>

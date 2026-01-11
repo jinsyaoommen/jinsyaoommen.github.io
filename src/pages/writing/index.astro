@@ -13,7 +13,7 @@ import Layout from '../../layouts/Layout.astro';
         <p class="status">Status: Just getting started</p>
 
         <div class="chapters">
-          <p class="placeholder">Chapters will appear here as you write them.</p>
+          <a href="/writing/chapter-1" class="chapter-link">Chapter 1</a>
         </div>
       </div>
     </div>
@@ -69,8 +69,15 @@ import Layout from '../../layouts/Layout.astro';
     padding-top: 1.5rem;
   }
 
-  .placeholder {
-    color: #888;
-    font-style: italic;
+  .chapter-link {
+    display: block;
+    padding: 0.75rem 0;
+    color: #2d2d2d;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .chapter-link:hover {
+    color: #7c9eb2;
   }
 </style>
