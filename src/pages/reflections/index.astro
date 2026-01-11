@@ -44,7 +44,7 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
             <h2 class="year">{year}</h2>
             <div class="posts">
               {postsByYear[Number(year)].map((post) => (
-                <div class="post" data-href={`/reflections/${post.id}`}>
+                <div class="post" data-href={`/reflections/${post.id}`} role="link" tabindex="0" aria-label={`Read ${post.data.title}`}>
                   <span class="date">
                     {post.data.pubDate.toLocaleDateString('en-US', {
                       month: 'long',
@@ -89,6 +89,12 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
     post.addEventListener('click', (e) => {
       if (e.target.closest('.tag')) return;
       window.location.href = post.dataset.href;
+    });
+    post.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = post.dataset.href;
+      }
     });
   });
 </script>
@@ -222,9 +228,15 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .post:hover {
+  .post:hover,
+  .post:focus {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .post:focus {
+    outline: 2px solid #7c9eb2;
+    outline-offset: 2px;
   }
 
   .date {
