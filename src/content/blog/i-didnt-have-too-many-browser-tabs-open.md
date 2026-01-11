@@ -1,7 +1,7 @@
 ---
 title: "I Didn't Have Too Many Browser Tabs Open, I Had a Second Brain"
 description: "My Chrome tabs weren't chaos. They were my external memory. Now that memory lives somewhere else."
-pubDate: 2025-09-15
+pubDate: 2025-09-23
 tags: ["ai", "productivity", "reflection"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "We Have Always Built on Layers. This Layer (AI) Is Just Smarter."
 description: "There's a lot of concern right now about AI tools doing junior developers a disservice. But this fear isn't new."
-pubDate: 2025-11-15
+pubDate: 2025-11-08
 tags: ["ai", "engineering", "career"]
 ---
 

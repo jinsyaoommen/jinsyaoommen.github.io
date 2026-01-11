@@ -1,7 +1,7 @@
 ---
 title: "The 5 Dysfunctions of a Software Team"
 description: "Reflections on what causes software teams to struggle shipping, inspired by Patrick Lencioni's framework."
-pubDate: 2019-08-01
+pubDate: 2025-03-04
 tags: ["productivity", "team", "leadership"]
 ---
 
