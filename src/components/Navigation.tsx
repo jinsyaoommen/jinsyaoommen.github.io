@@ -36,9 +36,6 @@ export default function Navigation() {
         <a href="/about" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
           About
         </a>
-        <a href="/favorites" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
-          A few of my favorite things...
-        </a>
         <a href="/reflections" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
           Reflections
         </a>
