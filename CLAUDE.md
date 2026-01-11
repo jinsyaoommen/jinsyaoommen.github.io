@@ -3,11 +3,14 @@
 ## Overview
 Personal website for Jinsy Oommen built with Astro. Deployed to GitHub Pages at **thegoodoommen.com**.
 
+See also: **MAINTENANCE.md** for a guide on making changes without AI assistance.
+
 ## Tech Stack
 - **Framework**: Astro 5.x with React integration
 - **Styling**: Scoped CSS in Astro components
 - **Search**: Pagefind (static search, runs after build)
 - **Sitemap**: @astrojs/sitemap (auto-generates sitemap-index.xml)
+- **RSS**: @astrojs/rss (feed at /rss.xml)
 - **Hosting**: GitHub Pages with custom domain
 - **DNS**: Cloudflare
 - **SEO**: Google Search Console configured, sitemap submitted
@@ -30,14 +33,15 @@ git add -A && git commit -m "message" && git push
 ```
 src/
 ├── layouts/
-│   └── Layout.astro          # Main layout with nav + SEO meta tags
+│   └── Layout.astro          # Main layout with nav + SEO meta tags + RSS link
 ├── components/
 │   └── Navigation.tsx        # React nav component
 ├── pages/
 │   ├── index.astro           # Homepage with hero + recent posts
 │   ├── about.astro           # About page
+│   ├── rss.xml.js            # RSS feed generator
 │   ├── reflections/          # Route: /reflections
-│   │   ├── index.astro       # Reflections listing (with search + year nav)
+│   │   ├── index.astro       # Reflections listing (with search, pinned posts, year nav)
 │   │   ├── [...slug].astro   # Individual post pages (with share buttons)
 │   │   └── tags/
 │   │       └── [tag].astro   # Tag filter pages
@@ -70,13 +74,16 @@ public/
 - Background: `#fafafa` (hero), `#f9f9f9` (cards)
 - Circular profile photo on homepage with gradient backdrop
 - Tags: fixed 27px height, 0.7rem font size
+- Pinned posts: blue left border accent
 - No emojis unless requested
 
 ## Features Implemented
 - Reflections with year grouping and sticky sidebar navigation
+- **Pinned posts** - show at top with blue accent border
 - Clickable tags that filter posts (accessible with keyboard nav)
 - Pagefind search on Reflections page
 - Share buttons on blog posts (LinkedIn, X)
+- **RSS feed** for subscriptions (/rss.xml)
 - Places page with card grid and modal for details
 - Responsive design (mobile-friendly)
 - SEO meta tags (Open Graph, Twitter cards, canonical URLs)
@@ -101,6 +108,7 @@ All marked "Under construction" with yellow banner. Places has placeholder cards
 
 ## SEO Setup
 - **Sitemap**: https://thegoodoommen.com/sitemap-index.xml (excludes /writing)
+- **RSS Feed**: https://thegoodoommen.com/rss.xml
 - **Google Search Console**: Verified via DNS TXT record in Cloudflare
 - **Meta tags**: description, author, canonical, Open Graph, Twitter cards
 - **Share buttons**: LinkedIn and X at bottom of each blog post
@@ -114,12 +122,15 @@ title: "Post Title"
 description: "Brief description"
 pubDate: 2025-02-15
 tags: ["tag1", "tag2"]
-draft: false
+pinned: false
 ---
 ```
 
+Set `pinned: true` to pin a post at the top of the Reflections page.
+
 ## Common Tasks
 - **Add blog post**: Create `.md` file in `src/content/blog/`
+- **Pin a post**: Add `pinned: true` to the post's frontmatter
 - **Add book chapter**: Create `.astro` file in `src/pages/writing/` and link from index
 - **Deploy changes**: `git add -A && git commit -m "message" && git push`
 - **Update favorites**: Edit respective file in `src/pages/favorites/`
