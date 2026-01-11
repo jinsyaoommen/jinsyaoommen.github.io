@@ -3,6 +3,7 @@ title: "More Than What Shipped: A Review Season Reflection"
 description: "A checklist for grounding reflection in both product leadership and servant leadership."
 pubDate: 2025-12-27
 tags: ["leadership", "reflection", "product"]
+pinned: true
 ---
 
 It's review season again, which means it's tempting to count deliverables, milestones, and metrics and call it reflection. But before I look at what I shipped, I try to pause and ask something harder and more honest: how did I lead? In a values-based company, success is not just about what moved forward, it is about who was supported, what clarity was created, and whether my work made it easier for others to do their best work. This checklist is my way of grounding that reflection in both product leadership and servant leadership.

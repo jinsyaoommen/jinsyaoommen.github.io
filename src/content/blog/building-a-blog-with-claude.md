@@ -3,6 +3,7 @@ title: "Building a Blog in a Day with Claude Code"
 description: "How I consolidated years of scattered writing into a personal website with the help of an AI coding assistant."
 pubDate: 2026-01-10
 tags: ["ai", "productivity", "writing", "seo"]
+pinned: true
 ---
 
 For years, my writing has lived in scattered places: a few posts on Dev.to, drafts in Google Docs, notes in Notion, and ideas that never made it past a sticky note. I always wanted a simple personal site to bring it all together, but building and maintaining a website felt like one more thing on an already full plate.
