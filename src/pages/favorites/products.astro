@@ -1,5 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const products = [
+  {
+    name: 'Wet/Dry Vacuum',
+    brand: 'Tineco',
+    image: '/products/TinecoWetDryVaccum.webp',
+    description: '',
+    link: ''
+  },
+];
 ---
 
 <Layout title="Products | Jinsy Oommen">
@@ -20,12 +30,139 @@ import Layout from '../../layouts/Layout.astro';
         Under construction
       </div>
 
-      <ul class="list">
-        <li>Coming soon...</li>
-      </ul>
+      <div class="grid">
+        {products.map((product, index) => (
+          <div class="card" data-index={index}>
+            <div class="image-container">
+              {product.image ? (
+                <img src={product.image} alt={product.name} />
+              ) : (
+                <div class="placeholder">
+                  <span>+</span>
+                </div>
+              )}
+            </div>
+            <div class="overlay">
+              <div class="info">
+                <h2>{product.name || 'Product Name'}</h2>
+                <span class="brand">{product.brand}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
+
+  <!-- Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-body">
+        <div class="modal-gallery">
+          <div class="modal-image-container">
+            <div class="modal-placeholder">
+              <span>+</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-info">
+          <h2 class="modal-title"></h2>
+          <span class="modal-brand"></span>
+          <p class="modal-description"></p>
+          <a class="modal-link" href="#" target="_blank" rel="noopener noreferrer">View Product</a>
+        </div>
+      </div>
+      <div class="modal-nav">
+        <button class="nav-prev" aria-label="Previous">&larr; Prev</button>
+        <button class="nav-next" aria-label="Next">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<script define:vars={{ products }}>
+  const modal = document.getElementById('productModal');
+  const backdrop = modal.querySelector('.modal-backdrop');
+  const closeBtn = modal.querySelector('.modal-close');
+  const prevBtn = modal.querySelector('.nav-prev');
+  const nextBtn = modal.querySelector('.nav-next');
+  const cards = document.querySelectorAll('.card');
+
+  let currentIndex = 0;
+
+  function openModal(index) {
+    currentIndex = index;
+    updateModal();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function updateModal() {
+    const product = products[currentIndex];
+    modal.querySelector('.modal-title').textContent = product.name;
+    modal.querySelector('.modal-brand').textContent = product.brand;
+    modal.querySelector('.modal-description').textContent = product.description || 'More details coming soon...';
+
+    const linkEl = modal.querySelector('.modal-link');
+    if (product.link) {
+      linkEl.href = product.link;
+      linkEl.style.display = 'inline-block';
+    } else {
+      linkEl.style.display = 'none';
+    }
+
+    const imageContainer = modal.querySelector('.modal-image-container');
+    if (product.image) {
+      imageContainer.innerHTML = `<img src="${product.image}" alt="${product.name}" />`;
+    } else {
+      imageContainer.innerHTML = `<div class="modal-placeholder"><span>+</span></div>`;
+    }
+
+    // Update nav buttons
+    prevBtn.style.visibility = currentIndex > 0 ? 'visible' : 'hidden';
+    nextBtn.style.visibility = currentIndex < products.length - 1 ? 'visible' : 'hidden';
+  }
+
+  function goToPrev() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateModal();
+    }
+  }
+
+  function goToNext() {
+    if (currentIndex < products.length - 1) {
+      currentIndex++;
+      updateModal();
+    }
+  }
+
+  // Event listeners
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => openModal(index));
+    card.style.cursor = 'pointer';
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  prevBtn.addEventListener('click', goToPrev);
+  nextBtn.addEventListener('click', goToNext);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') goToPrev();
+    if (e.key === 'ArrowRight') goToNext();
+  });
+</script>
 
 <style>
   .page {
@@ -34,7 +171,7 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   .container {
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 2rem;
   }
@@ -88,14 +225,270 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 2rem;
   }
 
-  .list {
-    padding-left: 1.5rem;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
   }
 
-  .list li {
-    font-size: 1.1rem;
-    line-height: 1.8;
+  .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .card:hover .overlay {
+    opacity: 1;
+  }
+
+  .image-container {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .image-container img {
+    transform: scale(1.05);
+  }
+
+  .placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #e5e5e5 0%, #d0d0d0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder span {
+    font-size: 2rem;
+    color: #bbb;
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    padding: 2rem 1rem 1rem;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+  }
+
+  .info h2 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: white;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .brand {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* Modal Styles */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .modal.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal-content {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+
+  .modal.open .modal-content {
+    transform: scale(1);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .modal-close:hover {
+    background: rgba(0,0,0,0.7);
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-gallery {
+    background: #f5f5f5;
+  }
+
+  .modal-image-container {
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modal-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #e5e5e5 0%, #d0d0d0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-placeholder span {
+    font-size: 3rem;
+    color: #bbb;
+  }
+
+  .modal-info {
+    padding: 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .modal-brand {
+    font-size: 0.9rem;
+    color: #888;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .modal-description {
+    font-size: 1rem;
     color: #444;
-    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+  }
+
+  .modal-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #7c9eb2;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+  }
+
+  .modal-link:hover {
+    background: #6a8a9e;
+  }
+
+  .modal-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .modal-nav button {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+    transition: all 0.2s ease;
+  }
+
+  .modal-nav button:hover {
+    background: #f5f5f5;
+    border-color: #ccc;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+      width: 95%;
+      max-height: 95vh;
+    }
+
+    .modal-info {
+      padding: 1rem;
+    }
+
+    .modal-nav {
+      padding: 0 1rem 1rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
