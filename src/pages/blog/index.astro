@@ -19,41 +19,52 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
 <Layout title="Blog | Jinsy Oommen">
   <section class="blog">
-    <div class="container">
-      <h1>Blog</h1>
+    <div class="layout">
+      <aside class="sidebar">
+        <nav class="year-nav">
+          <span class="nav-label">Jump to</span>
+          {years.map((year) => (
+            <a href={`#year-${year}`} class="year-link">{year}</a>
+          ))}
+        </nav>
+      </aside>
 
-      <p class="intro">Feel free to copy and adapt this. It’s the accumulation of years of listening, observing, and learning from the people around me, from seeing both what works and what doesn’t. None of this came from one place or one moment. It takes a village to grow wisdom, and this is my small reflection of that shared learning.</p>
+      <div class="container">
+        <h1>Blog</h1>
 
-      {years.map((year) => (
-        <div class="year-group">
-          <h2 class="year">{year}</h2>
-          <div class="posts">
-            {postsByYear[Number(year)].map((post) => (
-              <a href={`/blog/${post.id}`} class="post">
-                <span class="date">
-                  {post.data.pubDate.toLocaleDateString('en-US', {
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </span>
-                <h3>{post.data.title}</h3>
-                <p>{post.data.description}</p>
-                {post.data.tags.length > 0 && (
-                  <div class="tags">
-                    {post.data.tags.map((tag: string) => (
-                      <span class="tag">{tag}</span>
-                    ))}
-                  </div>
-                )}
-              </a>
-            ))}
+        <p class="intro">Feel free to copy and adapt this. It's the accumulation of years of listening, observing, and learning from the people around me, from seeing both what works and what doesn't. None of this came from one place or one moment. It takes a village to grow wisdom, and this is my small reflection of that shared learning.</p>
+
+        {years.map((year) => (
+          <div class="year-group" id={`year-${year}`}>
+            <h2 class="year">{year}</h2>
+            <div class="posts">
+              {postsByYear[Number(year)].map((post) => (
+                <a href={`/blog/${post.id}`} class="post">
+                  <span class="date">
+                    {post.data.pubDate.toLocaleDateString('en-US', {
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </span>
+                  <h3>{post.data.title}</h3>
+                  <p>{post.data.description}</p>
+                  {post.data.tags.length > 0 && (
+                    <div class="tags">
+                      {post.data.tags.map((tag: string) => (
+                        <span class="tag">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
 
-      {posts.length === 0 && (
-        <p class="empty">No posts yet. Check back soon!</p>
-      )}
+        {posts.length === 0 && (
+          <p class="empty">No posts yet. Check back soon!</p>
+        )}
+      </div>
     </div>
   </section>
 </Layout>
@@ -64,10 +75,49 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
     min-height: calc(100vh - 64px);
   }
 
-  .container {
-    max-width: 700px;
+  .layout {
+    display: flex;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 2rem;
+    gap: 3rem;
+  }
+
+  .sidebar {
+    flex-shrink: 0;
+    width: 100px;
+  }
+
+  .year-nav {
+    position: sticky;
+    top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-label {
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+  }
+
+  .year-link {
+    font-size: 0.9rem;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .year-link:hover {
+    color: #2d2d2d;
+  }
+
+  .container {
+    flex: 1;
+    max-width: 700px;
   }
 
   h1 {
@@ -86,6 +136,7 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
   .year-group {
     margin-bottom: 3rem;
+    scroll-margin-top: 2rem;
   }
 
   .year {
@@ -153,5 +204,27 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
   .empty {
     color: #888;
+  }
+
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sidebar {
+      width: 100%;
+    }
+
+    .year-nav {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
+    .nav-label {
+      width: 100%;
+    }
   }
 </style>
