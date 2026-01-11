@@ -13,7 +13,7 @@ Today, I finally did it, and the whole thing took less than a day.
 
 I had been curious about Claude Code, Anthropic's AI coding assistant. On a whim, I asked it to help me scaffold a personal blog. What started as a quick experiment turned into a fully deployed website with:
 
-- A clean, minimal design inspired by a Squarespace template I liked
+- A minimal design
 - A blog with posts grouped by year
 - An About page with my bio and speaking links
 - A "Favorites" page for quotes and recommendations
