@@ -24,7 +24,7 @@ I had been curious about Claude Code, Anthropic's AI coding assistant. On a whim
 Here's what it actually took:
 
 - **34 commits** over the course of a day
-- **~2 hours of active work** spread across the day (9:35 AM to 6:41 PM), with breaks for meetings, lunch, and other things in between
+- **~2 hours of active work** spread across the day (9:30 AM to 6:45 PM), with breaks for hanging out with family, laundry, and cooking dinner in between
 - **1 conversation** with Claude Code that I could resume at any point
 - **$0 hosting cost** using GitHub Pages
 
