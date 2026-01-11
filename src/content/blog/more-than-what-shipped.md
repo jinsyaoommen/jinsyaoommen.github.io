@@ -1,7 +1,7 @@
 ---
 title: "More Than What Shipped: A Review Season Reflection"
 description: "A checklist for grounding reflection in both product leadership and servant leadership."
-pubDate: 2026-01-10
+pubDate: 2025-12-27
 tags: ["leadership", "reflection", "product"]
 ---
 
