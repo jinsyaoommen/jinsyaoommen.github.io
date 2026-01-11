@@ -1,5 +1,5 @@
 ---
-title: "Building a Blog in a Day with Claude Code"
+title: "Building a Website in a Day with Claude Code"
 description: "How I consolidated years of scattered writing into a personal website with the help of an AI coding assistant."
 pubDate: 2026-01-10
 tags: ["ai", "productivity", "writing", "seo"]
