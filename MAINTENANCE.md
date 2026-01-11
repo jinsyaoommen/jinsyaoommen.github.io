@@ -29,8 +29,11 @@ A guide for making changes without AI assistance.
    description: "A brief description for SEO and previews"
    pubDate: 2025-03-15
    tags: ["tag1", "tag2"]
+   pinned: false
    ---
    ```
+
+   Set `pinned: true` to pin the post at the top of the Reflections page.
 
 3. Write your content in Markdown below the frontmatter:
    ```markdown
