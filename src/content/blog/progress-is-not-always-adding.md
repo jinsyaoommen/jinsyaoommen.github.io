@@ -32,7 +32,7 @@ Both matter. But they don't compound in the same way.
 
 Sometimes the most valuable thing we can do isn't to build something new. It's to make what already exists easier to use, easier to trust, and easier to build on. To smooth edges. To shorten paths. To reduce the cost of thinking and operating.
 
-It doesn't show up as a headline.
+It doesn’t look like a big launch or a splashy release. There’s no announcement, no demo moment, no sense of “ta-da.” But suddenly things feel easier. Work moves more smoothly. Decisions take less effort. The product becomes smoother to operate and easier to trust.
 It shows up as momentum.
 
 And momentum is usually worth more than one more feature.
