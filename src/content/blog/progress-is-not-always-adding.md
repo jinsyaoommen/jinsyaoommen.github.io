@@ -1,5 +1,5 @@
 ---
-title: "Progress Is Not Always Adding Something New — It Could Also Be Removing Friction"
+title: "Progress Is Not Always Adding Something New: It Could Also Be Removing Friction"
 description: "We instinctively measure progress by what we add. But removing friction creates value over and over again."
 pubDate: 2024-05-18
 tags: ["product", "leadership", "productivity"]
@@ -16,7 +16,6 @@ Friction shows up in quiet, exhausting ways:
 
 - manual steps that shouldn't exist
 - brittle workflows
-- unclear ownership
 - confusing interfaces
 - constant context switching
 - systems that require too much care
