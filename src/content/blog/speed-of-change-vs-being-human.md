@@ -44,24 +44,18 @@ Stabilization
 
 Or collapse into a new structure
 
-A star grows until it can no longer hold itself together and becomes something else.
-Water heats slowly until it suddenly changes state.
-Populations boom until resources force a shift.
-
 Not because something failed, but because the old form can't hold the new scale.
 
-That's what this moment feels like. Not calm progress, but a system approaching a phase change.
+That's what this moment feels like. Not linear progress, but a system approaching a phase change.
 
-People keep asking when this will stabilize. I don't actually know if it will, or at least not in the way past technology waves did. AI isn't just another layer of abstraction. It's a multiplier on every layer. It builds on itself. It compounds. It changes how change itself happens.
+I don't actually know if AI progress will stabilize in the way past technology waves did. Right now AI feels like it is a multiplier on every layer. It builds on itself. It compounds. It changes how change itself happens.
 
 So the exhaustion makes sense.
 The anxiety makes sense.
 The feeling of "I can't keep up" makes sense.
 
-It isn't personal failure.
 It's collective overload.
 
 We are living inside a moment where external systems are moving faster than our nervous systems. Where expectations are scaling faster than human processing. Where productivity myths collide with biological limits.
 
-And maybe the real work ahead isn't just learning new tools.
-It's learning how to live inside acceleration without letting it flatten our sense of self, our worth, or our humanity.
+We may have to learn how to live inside acceleration without letting it flatten our sense of self, our worth, or our humanity.
