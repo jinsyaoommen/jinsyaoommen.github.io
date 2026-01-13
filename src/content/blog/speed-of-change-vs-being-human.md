@@ -36,7 +36,7 @@ Progress isn't just moving forward. It's folding back into itself.
 
 Which is probably why this moment feels so disorienting. We're not just adopting new tools. We're watching intelligence bootstrap itself, in real time, inside organizations that still run on human energy, quarterly planning cycles, and limited emotional bandwidth.
 
-In physics and biology, rapid expansion almost always leads to one of three things:
+In physics and biology, rapid expansion almost always leads to some of these outcomes:
 
 Reorganization
 
