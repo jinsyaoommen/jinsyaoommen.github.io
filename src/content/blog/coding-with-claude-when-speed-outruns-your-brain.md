@@ -1,7 +1,7 @@
 ---
 title: "Coding with Claude: When Speed Outruns Your Brain"
 description: "AI doesn't remove cognitive load. It concentrates it. Reflections on a day of accelerated development and what it means for how we work."
-pubDate: 2025-01-23
+pubDate: 2026-01-23
 tags: ["ai", "software", "productivity", "reflection"]
 pinned: false
 ---
