@@ -4,7 +4,6 @@ import Layout from '../../layouts/Layout.astro';
 const sections = [
   // { name: 'Quotes', href: '/favorites/quotes', description: 'Words that have shaped how I think' },
   // { name: 'Books', href: '/favorites/books', description: 'Books that have influenced me' },
-  { name: 'Products', href: '/favorites/products', description: 'Things I use and love' },
   { name: 'Places', href: '/favorites/places', description: 'Places that have left a mark' },
 ];
 ---
@@ -13,7 +12,7 @@ const sections = [
   <section class="favorites">
     <div class="container">
       <h1>A few of my favorite things...</h1>
-      <p class="intro">A collection of things I love - products, places, and ideas that have shaped how I think and work.</p>
+      <p class="intro">A collection of places and ideas that have shaped how I think and work.</p>
 
       <div class="grid">
         {sections.map((section) => (
