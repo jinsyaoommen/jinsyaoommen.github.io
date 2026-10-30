@@ -126,26 +126,6 @@ The interest payments are not.
 
 It also eats into the time and energy we could be spending on something new.
 
-## AI May Accelerate Organizational Debt
-
-AI is making it easier than ever for people to build software, automate workflows, and create solutions to business problems.
-
-That's a good thing. People who used to wait on technical teams can now experiment and solve their own problems.
-
-But I also see a risk.
-
-When organizations don't provide shared capabilities, people naturally create their own.
-
-Need a CRM? Build one.
-
-Need contract management? Build an application.
-
-Need an approval workflow? Automate it.
-
-Each solution may be useful. But without shared architecture, integration standards, clear ownership, and lifecycle management, we're potentially creating new organizational debt at unprecedented speed.
-
-We're reducing the friction of creating tools without necessarily reducing the friction of operating an organization.
-
 ## What Would It Mean to Refactor an Organization?
 
 In software, refactoring means improving the internal structure of a system without changing its intended external behavior.
