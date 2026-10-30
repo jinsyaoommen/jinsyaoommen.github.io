@@ -102,7 +102,7 @@ Instead of every employee having to understand enterprise architecture, we can e
 
 This idea extends beyond software development.
 
-In the energy industry, for example, we're working to embed decades of energy management expertise into software so that customers can make better decisions without needing to become energy experts themselves.
+Many companies already build products this way, embedding deep domain expertise into software so that customers can make better decisions without needing to become experts themselves.
 
 Why wouldn't we take the same approach to software development?
 
