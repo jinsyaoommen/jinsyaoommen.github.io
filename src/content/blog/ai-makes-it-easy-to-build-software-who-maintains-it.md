@@ -1,7 +1,7 @@
 ---
 title: "AI Makes It Easy to Build Software. But Who's Going to Maintain It?"
 description: "Why organizations need to invest in the foundations of AI-powered software development, not just the ability to build more applications."
-pubDate: 2026-10-29
+pubDate: 2026-09-05
 tags: ["ai", "architecture", "platforms", "software", "leadership"]
 pinned: false
 ---
