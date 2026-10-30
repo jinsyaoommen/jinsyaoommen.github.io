@@ -65,7 +65,8 @@ public/
 ## Naming Conventions
 - Blog section is called **"Reflections"** (not "Blog")
 - Route is `/reflections` (not `/blog`)
-- Navigation shows: About, Reflections (favorites link hidden while under construction)
+- Navigation shows: Reflections, Beyond Tech
+- "Beyond Tech" is the display name for the favorites section; route stays `/favorites`
 
 ## Design Decisions
 - Minimal, clean aesthetic with muted colors

@@ -40,7 +40,7 @@ export default function Navigation() {
           Reflections
         </a>
         <a href="/favorites" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
-          A few of my favorite things...
+          Beyond Tech
         </a>
       </div>
     </nav>
