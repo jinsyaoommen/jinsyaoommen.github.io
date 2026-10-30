@@ -146,14 +146,6 @@ Each solution may be useful. But without shared architecture, integration standa
 
 We're reducing the friction of creating tools without necessarily reducing the friction of operating an organization.
 
-**AI can make it easier to build around organizational problems instead of actually solving them.**
-
-If five teams independently build five applications to address the same underlying capability gap, we've accelerated local productivity while potentially increasing organizational complexity.
-
-The answer isn't to discourage innovation.
-
-It's to make sure we're investing in the foundations that allow innovation to scale.
-
 ## What Would It Mean to Refactor an Organization?
 
 In software, refactoring means improving the internal structure of a system without changing its intended external behavior.
