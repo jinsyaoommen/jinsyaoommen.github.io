@@ -95,6 +95,9 @@ public/
 - `/writing/chapter-1` - First chapter
 - Excluded from sitemap via filter in astro.config.mjs
 - To add more chapters: create `chapter-2.astro`, etc. and link from index
+- `/drafts` - Lists blog posts with `draft: true` in frontmatter (noindex, not linked)
+- Draft posts render at `/reflections/<slug>` with a draft banner but are excluded from listings, tags, RSS, sitemap, and search. NOTE: the repo is public, so drafts are unlisted, not private
+- To publish a draft: set `draft: false` (URL stays the same)
 
 ## Accessibility Notes
 - Post cards on Reflections page use `<div>` with `role="link"`, `tabindex="0"`, and `aria-label`

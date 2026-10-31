@@ -15,18 +15,21 @@ const { Content } = await render(post);
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const shareText = `${post.data.title} by Jinsy Oommen`;
+const isDraft = post.data.draft;
 ---
 
-<Layout title={`${post.data.title} | Jinsy Oommen`} description={post.data.description}>
-  <article class="post">
+<Layout title={`${post.data.title} | Jinsy Oommen`} description={post.data.description} noindex={isDraft}>
+  <article class="post" data-pagefind-body={isDraft ? undefined : ''}>
     <div class="container">
       <nav class="breadcrumbs">
         <a href="/">Home</a>
         <span class="separator">/</span>
-        <a href="/reflections">Reflections</a>
+        {isDraft ? <a href="/drafts">Drafts</a> : <a href="/reflections">Reflections</a>}
         <span class="separator">/</span>
         <span class="current">{post.data.title}</span>
       </nav>
+
+      {isDraft && <p class="draft-banner">Draft: not published. Only people with this link can see it.</p>}
 
       <header>
         <span class="date">
@@ -50,6 +53,7 @@ const shareText = `${post.data.title} by Jinsy Oommen`;
         <Content />
       </div>
 
+      {!isDraft && (
       <div class="share">
         <span class="share-label">Share this</span>
         <div class="share-buttons">
@@ -73,11 +77,21 @@ const shareText = `${post.data.title} by Jinsy Oommen`;
           </a>
         </div>
       </div>
+      )}
     </div>
   </article>
 </Layout>
 
 <style>
+  .draft-banner {
+    background: #fff8e1;
+    border-left: 3px solid #e6b800;
+    color: #666;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+  }
+
   .post {
     padding: 4rem 0;
     min-height: calc(100vh - 64px);
