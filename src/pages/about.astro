@@ -1,110 +1,142 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const paperUrl = 'https://www.aceee.org/proceedings/from-distributed-spreadsheets-to-one-platform-digitizing-sem-delivery-while-maintaining-performance-and-participant-experience/';
 ---
 
-<Layout title="About | Jinsy Oommen">
+<Layout
+  title="About | Jinsy Oommen"
+  description="Jinsy Oommen's professional background, conference presentations, and published research in energy management and software product leadership."
+>
   <section class="about">
     <div class="container">
-      <h1>About Me</h1>
+      <header class="intro">
+        <p class="eyebrow">Professional Background</p>
+        <h1>About</h1>
+        <p class="lead">
+          I lead the Gazebo software business at Cascade Energy, working across product strategy,
+          engineering, and customer delivery. My work is focused on making energy management
+          more accessible and scalable through software.
+        </p>
+      </header>
 
-      <p>
-        I'm Jinsy Oommen. I work at the intersection of energy, technology, and product strategy to turn complex data into clarity and action.
-      </p>
+      <section class="section" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>Product Director, Gazebo</h3>
+            <span class="year">Current</span>
+          </div>
+          <p class="organization">Cascade Energy</p>
+          <p>
+            Lead the Gazebo energy performance software business, including product strategy,
+            software engineering, customer experience, delivery, and business performance.
+          </p>
+        </div>
+      </section>
 
-      <p>
-        I'm passionate about scaling tools and teams that drive real-world impact and meaningful change. I believe the best products come from deeply understanding customer problems, aligning cross-functional teams, and staying focused on outcomes over outputs.
-      </p>
+      <section class="section" aria-labelledby="speaking-heading">
+        <h2 id="speaking-heading">Speaking</h2>
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>ACEEE Summer Study on Energy Efficiency in Buildings</h3>
+            <span class="year">2026</span>
+          </div>
+          <p class="organization">Pacific Grove, California</p>
+          <p>
+            Presented <em>From Distributed Spreadsheets to One Platform: Digitizing SEM Delivery
+            While Maintaining Performance and Participant Experience</em>, covering the transition
+            from spreadsheet-based Strategic Energy Management program delivery to a centralized
+            software platform.
+          </p>
+          <a class="detail-link" href={paperUrl} target="_blank" rel="noopener noreferrer">
+            Read published paper <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>E Source Forum</h3>
+            <span class="year">2026</span>
+          </div>
+          <p class="organization">Denver, Colorado</p>
+          <p>
+            Panelist alongside Laura Schaefer of Energy Trust of Oregon for
+            <em>Great Expectations: Utility-Vendor Success Stories in Energy Efficiency and Electrification</em>.
+            Discussed the use of Gazebo to simplify SEM program delivery and support ongoing energy management.
+          </p>
+          <a class="detail-link" href="https://www.esource.com/forum-2026" target="_blank" rel="noopener noreferrer">
+            About the conference <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>ACEEE and Cascade Energy Webinar</h3>
+            <span class="year">2025</span>
+          </div>
+          <p class="organization">Online panel discussion</p>
+          <p>
+            Speaker for <em>Turning Compliance into Competitive Advantage: Use Your Data for More</em>,
+            a webinar co-hosted by ACEEE and Cascade Energy on turning energy and emissions
+            reporting into opportunities for operational improvement.
+          </p>
+          <a class="detail-link" href="https://www.youtube.com/watch?v=hFo_5xhAA48" target="_blank" rel="noopener noreferrer">
+            Watch on YouTube <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
 
-      <hr />
+      <section class="section" aria-labelledby="publication-heading">
+        <h2 id="publication-heading">Publication</h2>
+        <div class="entry">
+          <div class="entry-heading">
+            <h3>
+              <a href={paperUrl} target="_blank" rel="noopener noreferrer">
+                From Distributed Spreadsheets to One Platform: Digitizing SEM Delivery While Maintaining Performance and Participant Experience
+              </a>
+            </h3>
+            <span class="year">2026</span>
+          </div>
+          <p class="organization">Jinsy Oommen and Laura Schaefer</p>
+          <p>ACEEE Summer Study on Energy Efficiency in Buildings, conference proceedings.</p>
+          <a class="detail-link" href={paperUrl} target="_blank" rel="noopener noreferrer">
+            View on ACEEE <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
 
-      <h2>What I Focus On</h2>
-
-      <ul>
-        <li>Product strategy and leadership</li>
-        <li>Building and scaling high-performing teams</li>
-        <li>Turning complex data into actionable insights</li>
-        <li>Energy technology and sustainability</li>
-      </ul>
-
-      <hr />
-
-      <h2>Speaking</h2>
-
-      <ul>
-        <li>
-          <a href="https://www.youtube.com/watch?v=hFo_5xhAA48" target="_blank" rel="noopener noreferrer">Turning Compliance into Competitive Advantage</a> — Cascade Energy
-        </li>
-      </ul>
-
-      <hr />
-
-      <h2>Get in Touch</h2>
-
-      <p>
-        I'm always happy to connect. You can find me on
-        <a href="https://www.linkedin.com/in/jinsy-o-103b9a4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
-      </p>
+      <section class="section contact" aria-labelledby="connect-heading">
+        <h2 id="connect-heading">Connect</h2>
+        <p>
+          You can find me on <a href="https://www.linkedin.com/in/jinsy-o-103b9a4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+        </p>
+      </section>
     </div>
   </section>
 </Layout>
 
 <style>
-  .about {
-    padding: 4rem 0;
-    min-height: calc(100vh - 64px);
-  }
-
-  .container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: #2d2d2d;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    color: #2d2d2d;
-  }
-
-  p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 1.5rem;
-  }
-
-  hr {
-    border: none;
-    border-top: 1px solid #eee;
-    margin: 2.5rem 0;
-  }
-
-  ul {
-    padding-left: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  li {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 0.5rem;
-  }
-
-  a {
-    color: #7c9eb2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
+  .about { padding: 4.5rem 0 6rem; min-height: calc(100vh - 64px); }
+  .container { width: 100%; max-width: 820px; padding: 0 2rem; margin: 0 auto; }
+  .intro { margin-bottom: 3rem; }
+  .eyebrow { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7c9eb2; margin-bottom: 0.75rem; }
+  h1 { font-size: 2.5rem; font-weight: 600; letter-spacing: -0.025em; color: #2d2d2d; margin-bottom: 1.25rem; }
+  .lead { font-size: 1.1rem; line-height: 1.8; color: #555; max-width: 680px; }
+  .section { border-top: 1px solid #e7e7e7; padding-top: 2rem; margin-top: 2.5rem; }
+  h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem; color: #2d2d2d; }
+  .entry + .entry { border-top: 1px solid #efefef; margin-top: 1.75rem; padding-top: 1.75rem; }
+  .entry-heading { display: flex; gap: 1rem; justify-content: space-between; align-items: baseline; }
+  h3 { font-size: 1.07rem; font-weight: 600; line-height: 1.5; color: #2d2d2d; }
+  .year { font-size: 0.88rem; color: #888; white-space: nowrap; }
+  .organization { color: #777; font-size: 0.91rem; margin: 0.35rem 0 0.8rem; }
+  .entry > p:not(.organization), .contact p { line-height: 1.75; color: #555; font-size: 0.97rem; }
+  a { color: #5b8096; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .entry h3 a { color: inherit; }
+  .detail-link { display: inline-block; margin-top: 0.85rem; font-size: 0.9rem; font-weight: 500; }
+  @media (max-width: 600px) {
+    .about { padding: 3rem 0 4rem; }
+    .container { padding: 0 1.25rem; }
+    h1 { font-size: 2rem; }
+    .entry-heading { flex-direction: column; gap: 0.2rem; }
   }
 </style>
