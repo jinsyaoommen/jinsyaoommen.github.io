@@ -9,8 +9,6 @@ draft: false
 
 This year, I lost two mothers. My mom and my mother-in-law.
 
-Losing them within a few months of each other has changed how I think about time, relationships, and the things we carry with us.
-
 I've found myself coming back to a thought that seems so obvious, yet is so easy to forget.
 
 **One day, we will do something for the last time, and we probably won't know it.**
