@@ -27,8 +27,6 @@ We say goodbye expecting another hello. We make plans for another visit, another
 
 Until one day, it doesn't.
 
-And that has made me think about how we spend the time we *do* have.
-
 ## Don't Let the Sun Go Down on Your Anger
 
 Growing up, when my sister and I argued and were going to bed upset with each other, my parents would remind us of a verse from the Bible: "Do not let the sun go down on your anger."
