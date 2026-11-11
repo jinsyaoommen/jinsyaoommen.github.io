@@ -11,82 +11,52 @@ This year, I lost two mothers. My mom and my mother-in-law.
 
 I've come across a thought many times, especially on social media: **One day, we will do something for the last time, and we probably won't know it.**
 
-It's one of those things you read, agree with, and move on.
-
-Until you experience it.
+It's something I've always agreed with, but I don't think I fully appreciated what it meant until I experienced it myself.
 
 Two months before my mom passed away unexpectedly, I spent a few days with her. When I said goodbye, I fully expected to see her again.
 
 I didn't know that would be the last time I would see her in person. I didn't know I would never get to hug her again.
 
-I am incredibly grateful for those few days with her. But I also think about that goodbye. If I had known, would I have stayed a little longer? Would I have held on a little tighter?
+I'm grateful I got to spend those few days with her. I sometimes wonder if I would have stayed a little longer or hugged her a little tighter if I had known. But that's the thing. We don't know.
 
-I don't know.
-
-We say goodbye expecting another hello. We make plans for another visit, another call, another ordinary day together. Most of the time, life gives us those chances, so we come to expect them.
-
-Until one day, it doesn't.
+We make plans for the next visit, the next phone call, the next holiday. We assume we'll have another opportunity because that's how life has always worked. Until it doesn't.
 
 ## Don't Let the Sun Go Down on Your Anger
 
-Growing up, when my sister and I argued and were going to bed upset with each other, my parents would remind us of a verse from the Bible: "Do not let the sun go down on your anger."
+Growing up, whenever my sister and I argued and went to bed upset with each other, my parents would remind us of a verse from the Bible: "Do not let the sun go down on your anger."
 
-Back then, I understood it as a reminder to make peace before the day ended.
+As kids, that meant making up before going to bed. I think there's more to it than that.
 
-Losing my mom and mother-in-law has made me think about those words differently.
+Anger isn't always about an argument. It could be resentment toward someone, disappointment in how things turned out, frustration with circumstances we cannot control, or even guilt about our own decisions.
 
-Anger isn't always an argument. Sometimes it's quieter than that. Resentment toward someone. Disappointment about how something turned out. Frustration with a situation we can't change. Guilt or regret about our own choices.
+We spend a lot of time worrying about things we cannot change. We replay conversations, hold on to disappointments, and sometimes let those feelings affect our relationships. Other times, there isn't even anyone to blame. We're simply unhappy with how something turned out.
 
-Sometimes there isn't even a person to be angry with. We just carry around the weight of what happened, what didn't happen, or what we wish had happened differently.
+I'm not suggesting we ignore hurt or forgive everyone regardless of what happened. Some relationships need boundaries, and some things take time to work through.
 
-Those feelings are real. And letting go of them isn't always simple.
-
-But I wonder how often they occupy space in our lives that we could have spent being present. How often do we replay an old conversation, wait for someone to make the first move, or put off reaching out because something still bothers us?
-
-We assume there will be time to reconnect. Time to forgive. Time to understand. Time to make peace with ourselves or with circumstances beyond our control.
-
-Loss reminds us that time isn't guaranteed.
-
-I don't think the verse means we have to resolve every hurt before bedtime. Some wounds take time. Some boundaries are necessary. And some things cannot be made right.
-
-Maybe it is also a reminder to notice what we're carrying, and to ask whether we want it to shape the time we have left.
-
-**We cannot always change what happened. But we can try not to let it take away from what is still happening.**
+But I do wonder how much of our time we spend holding on to things that aren't worth it, and how much of that time we could have spent with the people we love.
 
 ## The Ordinary Moments
 
-We spend so much of life waiting for the next thing.
+We spend a lot of our lives waiting for things to settle down. When work is less busy, when the kids are older, when we have more time, or when we can finally take that trip.
 
-When work slows down. When the kids are older. When we can take a vacation. When life is less complicated.
+There's always something that needs our attention, and it's easy to put off spending time with people because we assume we'll get another chance.
 
-Meanwhile, life is happening in the middle of all of it.
+I don't think we need to make every moment special. That would be exhausting.
 
-In a phone call with a parent. In a meal around the table. In a familiar conversation we've had a hundred times. In a goodbye that seems no different from all the goodbyes before it.
+But I think we can be more intentional with the time we have. Call your parents even if there's nothing new to talk about. Spend time with people without needing an occasion. Don't let a small disagreement turn into months of silence. Tell people you appreciate them while you still have the opportunity.
 
-We tend to think the moments we'll remember most will be the big ones. The trips, milestones, and celebrations.
-
-But sometimes, what we long for is one more ordinary afternoon. One more conversation. One more hug.
-
-I don't think "make every moment count" means turning every day into a special occasion. That sounds exhausting, and it isn't how life works.
-
-Maybe it means being a little more present in the life we're already living. Listening a little more carefully. Letting a small frustration go. Making the call even when there's nothing important to say. Spending time together without needing a reason.
-
-Not because we should be afraid that every moment might be our last, but because we can be grateful that we have it at all.
+We don't have to agree on everything, have the last word in every conversation, or wait for everything to be perfect before making time for someone.
 
 ## Before the Sun Goes Down
 
-I know I won't always get this right.
+I'll still get frustrated, hold on to things longer than I should, and get caught up in work and everyday responsibilities. I don't expect that to change overnight.
 
-I'll still be impatient. I'll still get frustrated. I'll still get caught up in work and responsibilities, and I'll still take ordinary days for granted.
+But I want to get better at recognizing what deserves my time and energy, and what doesn't.
 
-But I hope I remember, a little more often, what this year has taught me.
+I'm grateful for the time I had with my mom. I wish I could hug her one more time. I can't.
 
-I'm grateful I got those few days with my mom. I didn't know they would be among our last days together, and perhaps that's part of what made them ordinary. We were simply spending time together.
+But I can make more of an effort to appreciate the people who are still here.
 
-I can't go back to that goodbye. I can't hug her one more time.
+We won't always know when we're doing something for the last time. And I don't think we should live in fear of that.
 
-What I can do is pay more attention to the people and moments still in front of me, and try to make peace with the things I don't need to keep carrying.
-
-Because one day, without realizing it, we will do something for the very last time.
-
-And more often than not, it will look like just another ordinary day.
+I just don't want to take the ordinary moments for granted.
