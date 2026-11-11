@@ -1,6 +1,6 @@
 ---
 title: "On the Ordinary Moments We Never Realize Are Our Last"
-description: "Losing my mom and mother-in-law this year has changed how I think about time, the feelings we carry, and the ordinary moments we assume we'll have again."
+description: "A familiar thought about last times became personal after I said goodbye to my mom, not knowing I would never hug her again."
 pubDate: 2026-11-10
 tags: ["reflection", "life", "loss", "family"]
 pinned: false
@@ -9,13 +9,13 @@ draft: false
 
 This year, I lost two mothers. My mom and my mother-in-law.
 
-I've found myself coming back to a thought that seems so obvious, yet is so easy to forget.
+I've come across a thought many times, especially on social media: **One day, we will do something for the last time, and we probably won't know it.**
 
-**One day, we will do something for the last time, and we probably won't know it.**
+It's one of those things you read, agree with, and move on.
 
-Two months before my mom passed away unexpectedly, I had the opportunity to spend a few days with her.
+Until you experience it.
 
-At the time, it was just another visit. When it was time to leave, I said goodbye, fully expecting to see her again.
+Two months before my mom passed away unexpectedly, I spent a few days with her. When I said goodbye, I fully expected to see her again.
 
 I didn't know that would be the last time I would see her in person. I didn't know I would never get to hug her again.
 
