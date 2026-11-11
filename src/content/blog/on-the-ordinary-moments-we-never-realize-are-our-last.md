@@ -47,8 +47,6 @@ But I think we can be more intentional with the time we have. Call your parents 
 
 We don't have to agree on everything, have the last word in every conversation, or wait for everything to be perfect before making time for someone.
 
-## Before the Sun Goes Down
-
 I'll still get frustrated, hold on to things longer than I should, and get caught up in work and everyday responsibilities. I don't expect that to change overnight.
 
 But I want to get better at recognizing what deserves my time and energy, and what doesn't.
