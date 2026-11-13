@@ -8,9 +8,9 @@ const recentPosts = (await getCollection('blog'))
   .slice(0, 3);
 
 const topics = [
-  { title: 'About', description: 'Who I am, what I work on, and what keeps me curious.', href: '/about', label: 'Get to know me', image: '/Headshot.jpeg', alt: 'Portrait of Jinsy Oommen' },
-  { title: 'Reflections', description: 'Thoughts on software, leadership, people, and everyday life.', href: '/reflections', label: 'Read my thoughts', image: '/places/kerala.jpg', alt: 'Landscape in Kerala' },
-  { title: 'Interests', description: 'The people, places, and things I enjoy.', href: '/favorites', label: 'Explore my interests', image: '/places/mthood.jpg', alt: 'Mount Hood in Oregon' },
+  { title: 'About', description: 'Who I am, what I work on, and what keeps me curious.', href: '/about', label: 'Get to know me', motif: 'arch' },
+  { title: 'Reflections', description: 'Thoughts on software, leadership, people, and everyday life.', href: '/reflections', label: 'Read my thoughts', motif: 'lotus' },
+  { title: 'Interests', description: 'The people, places, and things I enjoy.', href: '/favorites', label: 'Explore my interests', motif: 'weave' },
 ];
 ---
 
@@ -26,24 +26,18 @@ const topics = [
           <a class="hero-link" href="/reflections">Read my reflections <span aria-hidden="true">↗</span></a>
         </div>
         <div class="hero-photo">
-          <div class="wood-slat" aria-hidden="true"></div>
-          <img src="/profile.jpg" alt="Jinsy Oommen" width="560" height="650" fetchpriority="high" />
+          <img src="/places/machupicchu.jpg" alt="Machu Picchu, photographed during my travels" width="560" height="650" fetchpriority="high" />
           <span class="portrait-corner" aria-hidden="true"></span>
+          <span class="photo-caption">Machu Picchu</span>
         </div>
       </div>
-    </section>
-
-    <section class="intro-strip" aria-label="About this space">
-      <span class="woven-trim" aria-hidden="true"></span>
-      <p>Part professional journal, part personal reflections.</p>
-      <span class="woven-trim" aria-hidden="true"></span>
     </section>
 
     <section class="explore-section">
       <div class="topic-grid">
         {topics.map((topic) => (
-          <a href={topic.href} class="topic-card">
-            <div class="topic-photo"><img src={topic.image} alt={topic.alt} loading="lazy" /></div>
+          <a href={topic.href} class={`topic-card motif-${topic.motif}`}>
+            <span class="topic-motif" aria-hidden="true"></span>
             <div class="topic-content">
               <h2>{topic.title}</h2>
               <p>{topic.description}</p>
@@ -66,15 +60,14 @@ const topics = [
       <section class="writing-section">
         <div class="writing-heading">
           <div>
-            <span class="eyebrow">RECENT REFLECTIONS</span>
-            <h2>Latest thoughts</h2>
+            <h2>Reflections</h2>
           </div>
           <a href="/reflections">View all reflections <span aria-hidden="true">↗</span></a>
         </div>
         <div class="posts-grid">
           {recentPosts.map((post, index) => (
             <a href={`/reflections/${post.id}`} class="post-card">
-              <div class={`post-art post-art-${index + 1}`} aria-hidden="true"><span>{String(index+1).padStart(2,'0')}</span></div>
+              <span class="post-index" aria-hidden="true">0{index + 1}</span>
               <span class="post-date">{post.data.pubDate.toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' })}</span>
               <h3>{post.data.title}</h3>
               <p>{post.data.description}</p>
@@ -109,20 +102,20 @@ const topics = [
   .hero-link { display:inline-flex; align-items:center; gap:2rem; color:#fff; background:var(--forest); padding:1rem 1.3rem; font-size:.85rem; text-decoration:none; }
   .hero-link:hover { background:var(--peacock); }
   .hero-photo { position:relative; overflow:hidden; background:#a89880; }
-  .hero-photo img { display:block; width:100%; height:100%; min-height:660px; object-fit:cover; object-position:center 26%; filter:saturate(.86); }
-  .wood-slat { position:absolute; z-index:1; width:37px; height:100%; right:0; top:0; opacity:.65; background:repeating-linear-gradient(90deg,#543422 0px,#543422 5px,#a17a55 5px,#a17a55 9px,#3e291f 9px,#3e291f 13px); }
+  .hero-photo img { display:block; width:100%; height:100%; min-height:660px; object-fit:cover; object-position:center; filter:saturate(.85); }
+  
   .portrait-corner { position:absolute; z-index:1; bottom:2rem; left:-1px; width:110px; height:110px; border-left:5px solid var(--brass); border-bottom:5px solid var(--brass); opacity:.9; }
-  .intro-strip { min-height:125px; display:flex; align-items:center; justify-content:center; gap:3rem; padding:2rem 3rem; background:#f5f3ed; }
-  .intro-strip p { font:italic clamp(1.3rem,2.2vw,1.85rem) Georgia,serif; text-align:center; white-space:nowrap; }
-  .woven-trim { flex:1; max-width:230px; height:11px; opacity:.78; background:repeating-linear-gradient(45deg,transparent 0,transparent 4px,var(--brass) 4px,var(--brass) 5px,transparent 5px,transparent 9px),repeating-linear-gradient(-45deg,transparent 0,transparent 4px,var(--brass) 4px,var(--brass) 5px,transparent 5px,transparent 9px); border-top:1px solid var(--brass); border-bottom:1px solid var(--brass); }
+  
+  
+  
   .explore-section { padding:3rem 3rem 5.5rem; max-width:1270px; margin:auto; }
   .topic-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.65rem; }
-  .topic-card { background:#f3f0e8; color:var(--ink); text-decoration:none; transition:transform .2s,box-shadow .2s; }
+  .topic-card { min-height:320px; display:flex; flex-direction:column; position:relative; overflow:hidden; background:#f3f2eb; color:var(--ink); text-decoration:none; border-top:4px solid #245e66; transition:transform .2s,box-shadow .2s; }
   .topic-card:hover { transform:translateY(-4px); box-shadow:0 13px 30px #102b2420; }
-  .topic-photo { height:210px; overflow:hidden; background:#d2c1aa; }
-  .topic-photo img { width:100%; height:100%; object-fit:cover; transition:transform .3s; }
-  .topic-card:hover .topic-photo img { transform:scale(1.035); }
-  .topic-content { min-height:235px; display:flex; flex-direction:column; padding:1.35rem 1.55rem 1.5rem; }
+  
+  
+  .topic-card:hover 
+  .topic-content { position:relative; z-index:1; min-height:310px; display:flex; flex-direction:column; justify-content:end; padding:2rem; }
   .topic-content h2 { font-size:2rem; letter-spacing:-.03em; }
   .topic-content p { line-height:1.6; color:#4d5550; font-size:.89rem; margin:.7rem 0 1rem; flex:1; }
   .topic-link { font-size:.85rem; display:flex; justify-content:space-between; width:100%; border-bottom:1px solid #b4a590; padding-bottom:.65rem; }
@@ -136,12 +129,12 @@ const topics = [
   .writing-heading h2 { font-size:clamp(2.8rem,4vw,4.3rem); letter-spacing:-.04em; margin-top:.55rem; }
   .writing-heading>a { text-decoration:none; font-size:.87rem; color:var(--ink); border-bottom:1px solid var(--brass); padding-bottom:.5rem; }
   .posts-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.6rem; }
-  .post-card { text-decoration:none; color:var(--ink); display:flex; flex-direction:column; }
-  .post-art { position:relative; height:170px; background-size:cover; background-position:center; overflow:hidden; }
-  .post-art-1 { background-image:linear-gradient(135deg,#0c393550,#1a3e2a20),url('/places/kerala.jpg'); }
-  .post-art-2 { background-image:linear-gradient(135deg,#0c393535,#1a3e2a20),url('/places/mthood.jpg'); }
-  .post-art-3 { background-image:linear-gradient(135deg,#0c393535,#1a3e2a20),url('/places/redwoods.jpg'); }
-  .post-art span { position:absolute; right:1rem; bottom:.7rem; color:#ffffffd6; font:2rem Georgia,serif; }
+  .post-card { text-decoration:none; color:var(--ink); display:flex; flex-direction:column; border-top:1px solid #adbcb5; padding:1.1rem 0; }
+  
+  
+  
+  
+  
   .post-date { color:#936d35; letter-spacing:.1em; text-transform:uppercase; font-size:.67rem; margin:1.1rem 0 .65rem; }
   .post-card h3 { font-size:1.55rem; line-height:1.25; margin:0 0 .6rem; }
   .post-card p { color:#606760; line-height:1.65; font-size:.85rem; flex:1; }
@@ -155,7 +148,17 @@ const topics = [
   .footer-bottom { border-top:1px solid #386c68; padding:1rem 3rem 0; position:relative; min-height:45px; }
   .footer-bottom small { font-size:.7rem; color:#dfddd4; position:relative; z-index:1; }
   .footer-motif { position:absolute; bottom:0; right:0; left:0; height:12px; opacity:.6; background:radial-gradient(circle at 12px 12px,transparent 10px,var(--brass) 10.4px,var(--brass) 11.6px,transparent 12px) 0 0/24px 14px repeat-x; }
-  @media(max-width:850px) { .hero-inner { min-height:auto; } .hero-copy { padding:3rem 2rem; } .hero-photo img { min-height:530px; } .intro-strip { gap:1rem; } .intro-strip p { white-space:normal; } .explore-section,.writing-section { padding-left:2rem; padding-right:2rem; } .topic-photo { height:150px; } .topic-content { padding:1rem; } }
-  @media(max-width:650px) { .hero-inner { grid-template-columns:1fr; } .hero-copy { padding:3.4rem 1.4rem 3rem; } .hero-copy h1 { font-size:clamp(3rem,10vw,4.2rem); } .hero-photo { max-height:380px; } .hero-photo img { min-height:0; height:380px; } .intro-strip { padding:2rem 1.4rem; } .woven-trim { display:none; } .explore-section,.writing-section { padding:2.5rem 1.4rem 4rem; } .topic-grid,.posts-grid { grid-template-columns:1fr; } .topic-photo { height:230px; } .topic-content { min-height:180px; padding:1.2rem; } .statement-inner { padding:4rem 1.4rem; } .statement-inner p { font-size:2.15rem; } .writing-heading { align-items:start; flex-direction:column; gap:1rem; } .post-art { height:220px; } .footer-main { padding:3rem 1.4rem; flex-direction:column; align-items:start; } .footer-bottom { padding-left:1.4rem; } }
-  @media(prefers-reduced-motion:reduce) { .topic-card,.topic-photo img { transition:none; } }
+  /* Simple, nonphotographic Kerala-inspired line motifs */
+  .topic-card:nth-child(2) { background:#e8efeb; border-color:#14596a; }
+  .topic-card:nth-child(3) { background:#eee7dc; border-color:#79543f; }
+  .topic-motif { position:absolute; top:1.5rem; right:1.5rem; width:115px; height:100px; opacity:.25; }
+  .motif-arch .topic-motif { background:repeating-radial-gradient(ellipse at 50% 100%,transparent 0 13px,#20584b 14px 15px,transparent 16px 26px); border-bottom:2px solid #20584b; }
+  .motif-lotus .topic-motif { background:radial-gradient(ellipse at 50% 75%,transparent 0 20px,#14596a 21px 23px,transparent 24px), repeating-conic-gradient(from 0deg at 50% 80%,transparent 0 16deg,#14596a 17deg 18deg,transparent 19deg 40deg); border-radius:50%; }
+  .motif-weave .topic-motif { background:repeating-linear-gradient(45deg,transparent 0 10px,#79543f 11px 12px,transparent 13px 24px),repeating-linear-gradient(-45deg,transparent 0 10px,#79543f 11px 12px,transparent 13px 24px); }
+  .photo-caption { position:absolute; bottom:1.4rem; right:2rem; background:#102f2bbd; color:white; padding:.5rem .8rem; font-size:.75rem; letter-spacing:.07em; }
+  .post-index { font:2rem Georgia,serif; color:#a29b87; }
+  .writing-heading h2 { margin-top:0; }
+  @media(max-width:850px) { .hero-inner { min-height:auto; } .hero-copy { padding:3rem 2rem; } .hero-photo img { min-height:530px; }  
+  @media(max-width:650px) { .hero-inner { grid-template-columns:1fr; } .hero-copy { padding:3.4rem 1.4rem 3rem; } .hero-copy h1 { font-size:clamp(3rem,10vw,4.2rem); } .hero-photo { max-height:380px; } .hero-photo img { min-height:0; height:380px; }  
+  @media(prefers-reduced-motion:reduce) { .topic-card,
 </style>
