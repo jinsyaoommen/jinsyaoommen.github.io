@@ -8,22 +8,22 @@ const recentPosts = (await getCollection('blog'))
   .slice(0, 3);
 
 const topics = [
-  { title: 'About', description: 'Who I am, what I work on, and what keeps me curious.', href: '/about', label: 'Get to know me', motif: 'arch' },
-  { title: 'Reflections', description: 'Thoughts on software, leadership, people, and everyday life.', href: '/reflections', label: 'Read my thoughts', motif: 'lotus' },
-  { title: 'Interests', description: 'The people, places, and things I enjoy.', href: '/favorites', label: 'Explore my interests', motif: 'weave' },
+  { title: 'About', href: '/about', motif: 'arch' },
+  { title: 'Reflections', href: '/reflections', motif: 'lotus' },
+  { title: 'Interests', href: '/favorites', motif: 'weave' },
 ];
 ---
 
-<Layout title="The Good Oommen | Jinsy Oommen" description="Jinsy Oommen on technology, people, leadership, and life.">
+<Layout title="Jinsy Oommen | Personal Website">
   <div class="home">
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-copy">
-          <span class="eyebrow">THE GOOD OOMMEN</span>
-          <h1>Thoughts on <em>work, people,</em> and everything in between.</h1>
+          <span class="eyebrow">Hi, I'm Jinsy</span>
+          <h1>I care about thoughtful work, honest leadership, and building things that matter.</h1>
           <span class="gold-stroke" aria-hidden="true"></span>
-          <p>I'm Jinsy. I lead a software business and write about what I learn along the way, at work, with people, and in life.</p>
-          <a class="hero-link" href="/reflections">Read my reflections <span aria-hidden="true">↗</span></a>
+          <p>This is where I reflect on products, people, and the choices that shape both. At Cascade Energy, I work with teams to build products that help organizations create a culture of energy management and turn insight into action.</p>
+          <a class="hero-link" href="/reflections">Read My Reflections <span aria-hidden="true">↗</span></a>
         </div>
         <div class="hero-photo">
           <img src="/places/machupicchu.jpg" alt="Machu Picchu, photographed during my travels" width="560" height="650" fetchpriority="high" />
@@ -40,19 +40,10 @@ const topics = [
             <span class="topic-motif" aria-hidden="true"></span>
             <div class="topic-content">
               <h2>{topic.title}</h2>
-              <p>{topic.description}</p>
-              <span class="topic-link">{topic.label} <span aria-hidden="true">↗</span></span>
+              <span class="topic-link">Explore <span aria-hidden="true">↗</span></span>
             </div>
           </a>
         ))}
-      </div>
-    </section>
-
-    <section class="statement-section">
-      <div class="statement-inner">
-        <p>Building a business, leading people, and staying human is a constant work in progress.</p>
-        <span class="gold-stroke" aria-hidden="true"></span>
-        <a href="/reflections">Read more reflections <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -60,7 +51,7 @@ const topics = [
       <section class="writing-section">
         <div class="writing-heading">
           <div>
-            <h2>Reflections</h2>
+            <h2>Recent Reflections</h2>
           </div>
           <a href="/reflections">View all reflections <span aria-hidden="true">↗</span></a>
         </div>
@@ -80,7 +71,7 @@ const topics = [
 
     <footer class="site-footer">
       <div class="footer-main">
-        <div><span class="footer-brand">The Good Oommen</span><p>Thoughts on work, people, and life.</p></div>
+        <div><span class="footer-brand">The Good Oommen</span></div>
         <div class="footer-links"><a href="/about">About</a><a href="/reflections">Reflections</a><a href="/favorites">Interests</a></div>
       </div>
       <div class="footer-bottom"><small>© {new Date().getFullYear()} Jinsy Oommen</small><span class="footer-motif" aria-hidden="true"></span></div>
