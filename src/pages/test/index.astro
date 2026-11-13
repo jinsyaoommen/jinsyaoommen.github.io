@@ -1,0 +1,185 @@
+---
+import { getCollection } from 'astro:content';
+
+const recentPosts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+const topics = [
+  {title:'About',href:'/about',motif:'arch',kind:'about'},
+  {title:'Reflections',href:'/reflections',motif:'lotus',kind:'reflections'},
+  {title:'Interests',href:'/favorites',motif:'weave',kind:'interests'}
+];
+---
+<!doctype html>
+<html lang="en" data-theme="color">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Test | The Good Oommen</title>
+    <meta name="description" content="Design preview of The Good Oommen." />
+    <link rel="icon" href="/favicon.png" />
+  </head>
+  <body>
+    <div class="test-toolbar" role="group" aria-label="Website appearance">
+      <span class="test-tag">DESIGN TEST</span>
+      <div class="switcher" aria-label="Color mode">
+        <button type="button" data-set-theme="color" aria-pressed="true">Color</button>
+        <button type="button" data-set-theme="gray" aria-pressed="false">Grayscale</button>
+      </div>
+      <a class="back-link" href="/">← Original site</a>
+    </div>
+    <div class="site-shell">
+      <header class="main-nav">
+        <div class="nav-inner">
+          <a class="brand" href="/">The Good Oommen</a>
+          <nav aria-label="Site">
+            <a href="/about">About</a>
+            <a href="/reflections">Reflections</a>
+            <a href="/favorites">Interests</a>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <section class="hero">
+          <div class="hero-inner">
+            <div class="hero-copy">
+              <h1>Hi, I'm Jinsy.</h1>
+              <p class="original-statement">I care about thoughtful work, honest leadership, and building things that matter.</p>
+              <span class="gold-rule" aria-hidden="true"></span>
+              <p class="original-description">This is where I reflect on products, people, and the choices that shape both. At Cascade Energy, I work with teams to build products that help organizations create a culture of energy management and turn insight into action.</p>
+              <a class="reflection-link" href="/reflections">Read My Reflections <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="hero-image">
+              <img src="/places/machupicchu.jpg" alt="Machu Picchu" fetchpriority="high" width="570" height="570" />
+              <span class="photo-caption">Machu Picchu</span>
+            </div>
+          </div>
+        </section>
+        <section class="explore-section" aria-label="Explore the website">
+          <div class="cards">
+            {topics.map((topic) => (
+              <a class={`card ${topic.kind}`} href={topic.href}>
+                <span class={`motif ${topic.motif}`} aria-hidden="true"></span>
+                <div class="card-info">
+                  <h2>{topic.title}</h2>
+                  <span class="card-action">Explore <span aria-hidden="true">↗</span></span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+        <section class="posts-section">
+          <div class="posts-heading">
+            <h2>Recent Reflections</h2>
+            <a href="/reflections">View all reflections <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="posts">
+            {recentPosts.map((post,index) => (
+              <a class="post" href={`/reflections/${post.id}`}>
+                <span class="post-number">0{index+1}</span>
+                <time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</time>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+                <span class="post-more">Read reflection <span aria-hidden="true">↗</span></span>
+              </a>
+            ))}
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="footer-main">
+          <span class="footer-name">The Good Oommen</span>
+          <nav aria-label="Footer"><a href="/about">About</a><a href="/reflections">Reflections</a><a href="/favorites">Interests</a></nav>
+        </div>
+        <div class="footer-base"><small>© {new Date().getFullYear()} Jinsy Oommen</small></div>
+      </footer>
+    </div>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const buttons = document.querySelectorAll('[data-set-theme]');
+        let selected = 'color';
+        try { selected = localStorage.getItem('good-oommen-test-theme') === 'gray' ? 'gray' : 'color'; } catch {}
+        function apply(theme) {
+          root.dataset.theme = theme;
+          buttons.forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.setTheme === theme)));
+          try { localStorage.setItem('good-oommen-test-theme', theme); } catch {}
+        }
+        buttons.forEach(btn => btn.addEventListener('click', () => apply(btn.dataset.setTheme)));
+        apply(selected);
+      })();
+    </script>
+  </body>
+</html>
+<style is:global>
+  :root{--peacock:#0b5878;--teal:#07576b;--purple:#49314d;--ink:#173945;--gold:#e9c56c;--pearl:#fffdfa}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Arial,sans-serif;background:var(--pearl);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:3px solid #e9c56c;outline-offset:3px}
+  .test-toolbar{background:#232a2d;color:white;display:flex;align-items:center;justify-content:flex-end;gap:1.3rem;min-height:54px;padding:.5rem max(1.3rem,calc((100vw - 1210px)/2));font-size:.8rem}
+  .test-tag{margin-right:auto;font-weight:700;letter-spacing:.15em;color:#e9c56c;font-size:.68rem}
+  .switcher{display:flex;border:1px solid #9ea9ab;border-radius:999px;overflow:hidden}
+  .switcher button{background:transparent;color:#f1f1f1;padding:.45rem .85rem;border:0;cursor:pointer;font:inherit}
+  .switcher button[aria-pressed="true"]{background:#e9c56c;color:#1f2426;font-weight:700}
+  .back-link{text-decoration:underline;text-underline-offset:.2rem}
+  html[data-theme="gray"] .site-shell{filter:grayscale(1);transition:filter .18s ease}
+  .site-shell{overflow:hidden}
+  .main-nav{background:#fefcf8;border-bottom:1px solid #e7dcbf}
+  .nav-inner{max-width:1250px;margin:auto;padding:1.1rem 2.2rem;min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+  .brand{font:normal 1.52rem Georgia,serif;white-space:nowrap}
+  .brand:before{content:'';display:inline-block;width:10px;height:10px;margin-right:.65rem;border-radius:50%;background:linear-gradient(120deg,#9f6914,#fce9a1 42%,#c78e1a 70%,#f4d57e)}
+  .nav-inner nav{display:flex;gap:2rem;font-size:.85rem}
+  .hero{background:linear-gradient(115deg,#0a506c,#07425b);color:#fffaf0}
+  .hero-inner{max-width:1300px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;min-height:405px}
+  .hero-copy{padding:3rem 2.5rem 3.2rem max(2rem,calc((100vw - 1210px)/2));align-self:center}
+  h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:400}
+  .hero h1{font-size:clamp(2.5rem,4.2vw,4rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 1rem}
+  .original-statement{font:normal clamp(1.12rem,1.7vw,1.42rem)/1.45 Georgia,serif;max-width:540px;margin:0 0 .8rem;color:#fff6e6}
+  .gold-rule{display:block;width:65px;height:3px;background:linear-gradient(90deg,#a77013,#fff3b1 36%,#d19a22 75%,#f9db82);margin:1.2rem 0}
+  .original-description{font-size:.87rem;line-height:1.78;max-width:540px;color:#e7eff0;margin:0}
+  .reflection-link{display:inline-block;margin-top:1.4rem;font-size:.91rem;color:#fffaf0;border-bottom:1px solid #fffaf0;padding-bottom:.32rem}
+  .reflection-link:hover{color:#fff}
+  .hero-image{position:relative;min-height:405px;overflow:hidden;background:#132e33}
+  .hero-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+  .photo-caption{position:absolute;bottom:.85rem;right:1rem;background:#0c2a35cc;color:#fff;padding:.25rem .65rem;font-size:.7rem;letter-spacing:.04em}
+  .explore-section{background:#fffdf8;padding:2rem 2rem 3rem}
+  .cards{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.15rem}
+  .card{height:250px;position:relative;isolation:isolate;overflow:hidden;color:#fffdf7;display:flex;flex-direction:column;justify-content:end;padding:2rem;transition:transform .18s ease}
+  .card:hover{transform:translateY(-3px)}
+  .card.about{background:#095a7e}
+  .card.reflections{background:#07646b}
+  .card.interests{background:#49314d}
+  /* One subtle textile-style ornamental gold frame per card; no secondary panel. */
+  .card:before{content:'';position:absolute;inset:0;pointer-events:none;border:7px solid transparent;border-image:linear-gradient(135deg,#8c5912,#ffe5a0 19%,#ba8320 36%,#fff0b1 52%,#c38b23 77%,#f5dc8b) 8;z-index:2}
+  .card:after{content:'';position:absolute;top:6px;left:7px;right:7px;height:21px;opacity:.8;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0px,transparent 12px,#f5d77f 13px,#f5d77f 14px,transparent 15px,transparent 25px),repeating-linear-gradient(135deg,transparent 0 9px,#c89b3e 9px 11px,transparent 11px 20px);z-index:1}
+  .card-info{position:relative;z-index:3}
+  .card h2{font-size:2.1rem;color:#fffaf0;margin:0 0 1.6rem}
+  .card-action{font-size:.91rem;color:#fffaf0;display:flex;justify-content:space-between;border-top:1px solid #f4d89699;padding-top:.8rem}
+  .motif{position:absolute;right:2rem;top:3rem;width:115px;height:105px;opacity:.17}
+  .motif.arch{background:repeating-radial-gradient(ellipse at 50% 100%,transparent 0 12px,#f8e9ae 13px 14px,transparent 15px 27px)}
+  .motif.lotus{background:repeating-conic-gradient(from 0deg at 50% 85%,transparent 0 17deg,#f8e9ae 18deg 20deg,transparent 21deg 40deg);border-radius:50%}
+  .motif.weave{background:repeating-linear-gradient(45deg,transparent 0 10px,#f8e9ae 11px 12px,transparent 13px 24px),repeating-linear-gradient(-45deg,transparent 0 10px,#f8e9ae 11px 12px,transparent 13px 24px)}
+  .posts-section{max-width:1200px;padding:2rem 1.5rem 5rem;margin:auto}
+  .posts-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:2.5rem}
+  .posts-heading h2{font-size:clamp(2.3rem,3.5vw,3.5rem);color:#103d56;letter-spacing:-.03em;margin:0}
+  .posts-heading>a{font-size:.84rem;border-bottom:1px solid #d4b253;padding-bottom:.3rem}
+  .posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.8rem}
+  .post{border-top:2px solid #d2ae55;padding-top:1.1rem;display:flex;flex-direction:column;min-height:260px}
+  .post-number{font:normal 1.8rem Georgia,serif;color:#b59039}
+  .post time{font-size:.69rem;color:#4d6570;text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .6rem}
+  .post h3{font-size:1.5rem;line-height:1.3;color:#173f52;margin:0 0 .8rem}
+  .post p{font-size:.83rem;line-height:1.65;color:#52616a;flex:1;margin:0 0 1.2rem}
+  .post-more{font-size:.81rem;border-top:1px solid #ddd0b3;padding-top:.8rem;display:flex;justify-content:space-between}
+  footer{background:linear-gradient(120deg,#08445f,#0a5870);color:#fff9ed}
+  .footer-main{max-width:1200px;margin:auto;padding:2.5rem 2rem 2rem;display:flex;align-items:start;justify-content:space-between;gap:1rem}
+  .footer-name{font:normal 1.9rem Georgia,serif}
+  .footer-main nav{display:flex;gap:1.4rem;font-size:.8rem}
+  .footer-base{padding:.8rem 2rem 1.2rem;border-top:1px solid #ffffff29;font-size:.75rem}
+  .footer-base small{color:#e6edf0}
+  @media(max-width:800px){.hero-inner{grid-template-columns:1fr 1fr}.hero-copy{padding:2.5rem 1.5rem}.hero h1{font-size:2.8rem}.hero-image{min-height:440px}.cards{gap:.8rem}.card{height:225px;padding:1.5rem}}
+  @media(max-width:650px){.test-toolbar{flex-wrap:wrap;justify-content:center;gap:.6rem;padding:.6rem}.test-tag{margin-right:0}.nav-inner{padding:1.3rem;flex-direction:column}.nav-inner nav{gap:1.2rem}.hero-inner{display:flex;flex-direction:column}.hero-copy{padding:2.5rem 1.3rem}.hero-image{height:245px;min-height:245px}.explore-section{padding:1.4rem}.cards,.posts{grid-template-columns:1fr}.card{height:210px}.posts-section{padding:2rem 1.4rem 4rem}.posts-heading{align-items:start;flex-direction:column}.footer-main{padding:2rem 1.4rem;flex-direction:column}.footer-main nav{flex-wrap:wrap}.footer-base{padding-left:1.4rem}}
+  @media(prefers-reduced-motion:reduce){.site-shell,.card{transition:none}}
+</style>
