@@ -42,6 +42,9 @@ export default function Navigation() {
         <a href="/favorites" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
           Interests
         </a>
+        <a href="/test/" style={{ textDecoration: 'none', color: '#f2d58f', fontSize: '0.875rem' }}>
+          Test
+        </a>
       </div>
     </nav>
   );
