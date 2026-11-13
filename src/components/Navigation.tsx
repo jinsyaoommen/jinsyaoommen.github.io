@@ -1,48 +1,31 @@
 export default function Navigation() {
   return (
-    <nav style={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '1rem 2rem',
-      background: '#2d2d2d',
-      color: 'white',
-    }}>
-      <a
-        href="/"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.75rem',
-          textDecoration: 'none',
-          color: 'white',
-          fontSize: '1.1rem',
-          fontWeight: 500,
-        }}
-      >
-        <img
-          src="/Headshot.jpeg"
-          alt="Jinsy Oommen"
-          style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '50%',
-            objectFit: 'cover',
-          }}
-        />
-        Jinsy Oommen
-      </a>
-      <div style={{ display: 'flex', gap: '2rem' }}>
-        <a href="/about" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
-          About
+    <header className="main-header">
+      <nav className="main-nav" aria-label="Main navigation">
+        <a className="brand-link" href="/">
+          <span className="brand-dot" aria-hidden="true"></span>
+          The Good Oommen
         </a>
-        <a href="/reflections" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
-          Reflections
-        </a>
-        <a href="/favorites" style={{ textDecoration: 'none', color: 'white', fontSize: '0.875rem' }}>
-          Interests
-        </a>
-      </div>
-    </nav>
+        <div className="main-links">
+          <a href="/about">About</a>
+          <a href="/reflections">Reflections</a>
+          <a href="/favorites">Interests</a>
+        </div>
+      </nav>
+      <style>{`
+        .main-header { background: #f7f2e9; border-bottom: 1px solid #e4dfd5; color: #292f2b; }
+        .main-nav { max-width: 1280px; margin: auto; min-height: 83px; padding: 1.2rem 3.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+        .brand-link { display:flex; align-items:center; gap: .7rem; font: 1.28rem Georgia, 'Times New Roman', serif; color: #292f2b; text-decoration:none; white-space:nowrap; }
+        .brand-dot { width: 11px; height: 11px; display:inline-block; border-radius:50%; background:#ae6e58; }
+        .main-links { display:flex; gap: 2.4rem; flex-wrap: wrap; }
+        .main-links a { color:#3f4740; text-decoration:none; font-size:.84rem; letter-spacing:.035em; }
+        .main-links a:hover { color:#ad6c55; }
+        @media (max-width: 700px) {
+          .main-nav { padding: 1.2rem 1.3rem; flex-direction:column; gap:1.1rem; }
+          .brand-link { font-size:1.2rem; }
+          .main-links { gap:2rem; justify-content:center; }
+        }
+      `}</style>
+    </header>
   );
 }
