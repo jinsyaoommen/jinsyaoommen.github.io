@@ -373,4 +373,12 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
       width: 100%;
     }
   }
+
+/* Editorial style shared with homepage; content and behavior unchanged. */
+h1 {font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(2rem,3vw,2.55rem);letter-spacing:-.025em;line-height:1.23;color:#292929}
+.intro,.lead {color:#646464;line-height:1.7}
+.breadcrumbs a,.back,.detail-link,.subscribe-link,.eyebrow {color:#536b79}
+.page,.about,.resume,.blog,article.post,.drafts,.writing,.chapter {padding-top:2.75rem}
+@media(max-width:650px){.page,.about,.resume,.blog,article.post,.drafts,.writing,.chapter {padding-top:2rem}}
+.header .intro{font-style:normal;line-height:1.8}.post{background:white;border-radius:0;border-bottom:1px solid #dedede;box-shadow:none}.post:hover{transform:none;box-shadow:none;background:#fafafa}.tag{background:#f0f1f1}.tag:hover{background:#536b79;color:white}
 </style>
