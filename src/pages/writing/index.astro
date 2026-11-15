@@ -80,4 +80,12 @@ import Layout from '../../layouts/Layout.astro';
   .chapter-link:hover {
     color: #7c9eb2;
   }
+
+/* Restrained editorial styling to match the homepage */
+h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2rem,3vw,2.55rem);font-weight:400;letter-spacing:-.025em;line-height:1.23;color:#292929}
+.breadcrumbs a,.back,.chapter-number{color:#536b79}
+.intro{color:#646464;line-height:1.7}
+.page,.favorites,.drafts,.writing,.chapter{padding-top:2.75rem}
+@media(max-width:650px){.page,.favorites,.drafts,.writing,.chapter{padding-top:2rem}}
+.project{background:white;border-radius:0;border-top:1px solid #dedede;border-bottom:1px solid #dedede;padding:1.5rem 0}.project h2{font-family:Georgia,'Times New Roman',serif;font-weight:400}
 </style>
