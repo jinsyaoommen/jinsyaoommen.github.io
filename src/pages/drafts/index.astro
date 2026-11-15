@@ -98,4 +98,12 @@ const drafts = (await getCollection('blog'))
     font-size: 0.9rem;
     margin: 0.5rem 0 0;
   }
+
+/* Restrained editorial styling to match the homepage */
+h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2rem,3vw,2.55rem);font-weight:400;letter-spacing:-.025em;line-height:1.23;color:#292929}
+.breadcrumbs a,.back,.chapter-number{color:#536b79}
+.intro{color:#646464;line-height:1.7}
+.page,.favorites,.drafts,.writing,.chapter{padding-top:2.75rem}
+@media(max-width:650px){.page,.favorites,.drafts,.writing,.chapter{padding-top:2rem}}
+ul{border-top:1px solid #dedede}li{border:0;border-bottom:1px solid #dedede;background:white;padding:1.35rem 0}
 </style>
